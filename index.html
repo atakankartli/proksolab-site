@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proksolab</title>
-<meta name="description" content="Proksolab is a small science project: simple, open experiments on soil, water, air and energy.">
-<meta property="og:title" content="Proksolab: open science experiments">
-<meta property="og:description" content="Simple, open experiments on soil, water, air and energy, with every number labelled.">
+<meta name="description" content="Proksolab presence detection knows when a room is empty, even when people sit still, and switches off lights and heating without cameras.">
+<meta property="og:title" content="Proksolab: presence detection that saves energy">
+<meta property="og:description" content="Know when a room is really empty. No cameras, works in the dark, and every number is measured.">
 <meta property="og:url" content="https://www.proksolab.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f9e5b'/%3E%3Cpath d='M9 23C9 13 16 8 24 8c0 9-6 15-15 15z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,32 +36,71 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:12px;paddi
 .links{display:flex;align-items:center}
 .links a{color:var(--dim);text-decoration:none;margin-left:20px}
 .links a:hover{color:var(--ink)}
-@media(max-width:560px){.links a:nth-child(2),.links a:nth-child(3){display:none}}
+@media(max-width:640px){.links a{display:none}}
 .theme{margin-left:20px;font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 
-.hero{display:grid;gap:40px;padding:56px 0 80px;align-items:center}
-@media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr;padding:88px 0 112px}}
+.hero{display:grid;gap:40px;padding:48px 0 80px;align-items:center}
+@media(min-width:880px){.hero{grid-template-columns:1.1fr .9fr;padding:80px 0 104px}}
 .tag{font-family:var(--mono);font-size:13px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase}
 h1,h2{font-family:var(--serif);letter-spacing:-.02em}
-h1{font-size:clamp(38px,7vw,66px);line-height:1.04;font-weight:800;margin:16px 0 22px}
+h1{font-size:clamp(38px,6.6vw,64px);line-height:1.04;font-weight:800;margin:16px 0 22px}
 h1 em{font-style:italic;color:var(--accent)}
 .lede{color:var(--dim);font-size:18px;max-width:34em}
-.cta{display:inline-block;margin-top:32px;background:var(--accent);color:var(--btn-ink);font-weight:600;text-decoration:none;padding:14px 22px;border-radius:999px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.cta{display:inline-block;background:var(--accent);color:var(--btn-ink);font-weight:600;text-decoration:none;padding:14px 22px;border-radius:999px}
 .cta:hover{filter:brightness(1.08)}
-.chart{width:100%;max-width:420px;justify-self:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
-.chart text{font:10px var(--mono);fill:var(--dim)}
+.cta.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.ticks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;padding:0;list-style:none;font:13px var(--mono);color:var(--dim)}
+.ticks li::before{content:"✓ ";color:var(--accent)}
+.room{width:100%;max-width:440px;justify-self:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+.room text{font:10px var(--mono);fill:var(--dim)}
+@keyframes pulse{0%{r:6;opacity:.6}100%{r:46;opacity:0}}
+.wave{fill:none;stroke:var(--accent);stroke-width:1.5;animation:pulse 2.4s ease-out infinite}
+.wave.b{animation-delay:1.2s}
+@media(prefers-reduced-motion:reduce){.wave{animation:none;opacity:.3}}
 
 section{padding:72px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(28px,4vw,38px);font-weight:600;margin-bottom:12px}
-.sub{color:var(--dim);max-width:40em;margin-bottom:40px}
+h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:12px}
+.sub{color:var(--dim);max-width:40em;margin-bottom:40px;font-size:17px}
+.alt{background:var(--panel)}
 
 .grid{display:grid;gap:16px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.alt .card{background:var(--bg)}
 .card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--soft)}
 .card:nth-child(even) .ico{background:var(--soft2)}
 .card h3{font-size:20px;margin:14px 0 6px}
 .card p{color:var(--dim);font-size:15px}
+
+.steps{display:grid;gap:16px;counter-reset:s;padding:0;list-style:none}
+@media(min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}.steps.four{grid-template-columns:repeat(4,1fr)}}
+.steps li{border-top:3px solid var(--accent);padding-top:18px}
+.steps li:nth-child(even){border-color:var(--accent2)}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:12px var(--mono);color:var(--dim)}
+.steps h3{font-size:18px;margin:8px 0 6px}
+.steps p{color:var(--dim);font-size:15px}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+thead th:nth-child(2),td:nth-child(2){background:var(--soft)}
+.y{color:var(--accent);font-weight:600}.n{color:var(--dim)}
+
+.calc{display:grid;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+@media(min-width:820px){.calc{grid-template-columns:1fr 1fr;gap:40px}}
+.calc label{display:block;font-size:14px;color:var(--dim);margin-bottom:14px}
+.calc input{display:block;width:100%;margin-top:6px;font:16px var(--mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.res{display:grid;gap:12px;align-content:start}
+.res div{background:var(--soft);border-radius:12px;padding:18px 20px}
+.res div:nth-child(2){background:var(--soft2)}
+.res b{display:block;font:800 clamp(26px,4vw,34px) var(--serif)}
+.res span{font-size:14px;color:var(--dim)}
+.note{font-size:13px;color:var(--dim);margin-top:4px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:var(--soft2);color:var(--accent2);vertical-align:middle}
+.chip.e{background:var(--line);color:var(--dim)}
 
 .labels{display:grid;gap:16px}
 @media(min-width:720px){.labels{grid-template-columns:repeat(3,1fr)}}
@@ -72,20 +111,6 @@ h2{font-size:clamp(28px,4vw,38px);font-weight:600;margin-bottom:12px}
 .e b{background:var(--line);color:var(--dim)}
 .label p{color:var(--dim);font-size:15px;margin-top:14px}
 
-.steps{display:grid;gap:16px;counter-reset:s;padding:0;list-style:none}
-@media(min-width:720px){.steps{grid-template-columns:repeat(4,1fr)}}
-.steps li{border-top:3px solid var(--accent);padding-top:18px}
-.steps li:nth-child(even){border-color:var(--accent2)}
-.steps li::before{counter-increment:s;content:"0" counter(s);font:12px var(--mono);color:var(--dim)}
-.steps h3{font-size:18px;margin:8px 0 6px}
-.steps p{color:var(--dim);font-size:15px}
-
-.out{display:grid;gap:10px 32px;padding:0;list-style:none;font-size:15px}
-@media(min-width:720px){.out{grid-template-columns:1fr 1fr}}
-.out li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative;color:var(--dim)}
-.out li b{color:var(--ink);font-weight:600}
-.out li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
-
 details{border-bottom:1px solid var(--line);padding:18px 0;max-width:46em}
 summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
@@ -93,8 +118,8 @@ summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
 details[open] summary::after{content:"−"}
 details p{color:var(--dim);margin-top:10px;font-size:15px}
 
-.contact{text-align:center}
-.contact .sub{margin:0 auto 8px}
+.contact{text-align:center;background:var(--soft)}
+.contact .sub{margin:0 auto 24px}
 .mail{font-family:var(--mono);font-size:clamp(18px,4vw,28px);color:var(--accent);text-decoration:none;word-break:break-all}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13px var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
@@ -104,97 +129,171 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
     <div class="links">
-      <a href="#study">Study</a><a href="#method">Method</a><a href="#faq">FAQ</a>
+      <a href="#how">How it works</a><a href="#savings">Savings</a><a href="#science">Science</a><a href="#faq">FAQ</a>
       <button class="theme" id="theme" type="button" aria-label="Switch theme">🌿 Eco</button>
     </div>
   </nav>
 
   <header class="hero">
     <div>
-      <div class="tag">Open science · Experiments · Data</div>
-      <h1>Small experiments, <em>honest</em> numbers.</h1>
-      <p class="lede">Proksolab is a science project. We run simple experiments on soil, water, air and energy, and we publish the data and the method so anyone can repeat them.</p>
-      <a class="cta" href="#study">See what we study →</a>
+      <div class="tag">Presence detection · Energy · Science</div>
+      <h1>Rooms that know when they are <em>really</em> empty.</h1>
+      <p class="lede">Proksolab sensors detect people in a room, even when they sit perfectly still, so lights, heating and cooling switch off only when nobody is there. No cameras. No guessing.</p>
+      <div class="ctas">
+        <a class="cta" href="#contact">Start a pilot →</a>
+        <a class="cta ghost" href="#savings">Estimate your savings</a>
+      </div>
+      <ul class="ticks"><li>No cameras</li><li>Detects still people</li><li>Works in the dark</li><li>Processes on the device</li></ul>
     </div>
-    <!-- decorative growth chart -->
-    <svg class="chart" viewBox="0 0 240 170" aria-hidden="true">
-      <g stroke="var(--line)"><path d="M30 10V140H230"/><path d="M30 105H230M30 70H230M30 35H230" stroke-dasharray="2 4"/></g>
-      <path d="M30 132 C70 128,90 110,120 92 S180 40,225 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-      <path d="M30 136 C70 134,100 126,130 116 S190 92,225 84" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
-      <g fill="var(--accent)"><circle cx="70" cy="125" r="3.5"/><circle cx="120" cy="92" r="3.5"/><circle cx="170" cy="52" r="3.5"/><circle cx="225" cy="24" r="3.5"/></g>
-      <text x="30" y="158">day 0</text><text x="200" y="158">day 28</text>
+    <!-- room floor plan: one seated person, sensor pulse -->
+    <svg class="room" viewBox="0 0 260 200" role="img" aria-label="Floor plan of a room with a sensor detecting a seated person">
+      <rect x="10" y="10" width="240" height="170" rx="6" fill="none" stroke="var(--line)" stroke-width="2"/>
+      <rect x="150" y="110" width="70" height="40" rx="4" fill="var(--soft2)"/>
+      <rect x="40" y="30" width="60" height="30" rx="4" fill="var(--soft2)"/>
+      <circle cx="185" cy="98" r="9" fill="var(--accent)"/>
+      <circle class="wave" cx="185" cy="98" r="6"/><circle class="wave b" cx="185" cy="98" r="6"/>
+      <circle cx="130" cy="14" r="5" fill="var(--ink)"/>
+      <path d="M130 18 L60 180 M130 18 L240 160" stroke="var(--accent)" stroke-dasharray="3 4" opacity=".5"/>
+      <text x="138" y="30">sensor</text><text x="150" y="168">person, still for 40 min</text>
+      <text x="20" y="195">status: OCCUPIED · lights on · HVAC on</text>
     </svg>
   </header>
 </div>
 
-<section id="study">
+<section class="alt">
   <div class="wrap">
-    <h2>What we study</h2>
-    <p class="sub">Everyday questions about the environment, tested with cheap sensors, careful notes and a lot of patience.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">🌱</div><h3>Soil</h3><p>Moisture, compost and how different mixes change how fast plants grow.</p></div>
-      <div class="card"><div class="ico">💧</div><h3>Water</h3><p>Rainwater collection, filtering and how clean the result really is.</p></div>
-      <div class="card"><div class="ico">🌬️</div><h3>Air</h3><p>Indoor CO₂ and particles, and what opening a window actually does.</p></div>
-      <div class="card"><div class="ico">☀️</div><h3>Energy</h3><p>Small solar panels, batteries and how much power a sunny day gives.</p></div>
+    <h2>Empty rooms still burn energy</h2>
+    <p class="sub">Most buildings decide whether a room is in use with tools that were never built to answer that question.</p>
+    <div class="grid three">
+      <div class="card"><div class="ico">🙋</div><h3>Motion sensors miss still people</h3><p>A standard motion sensor only sees movement. Someone reading or typing quietly gets plunged into darkness, so people tape over the sensor or set long timeouts.</p></div>
+      <div class="card"><div class="ico">⏱️</div><h3>Timers just guess</h3><p>Schedules heat and light rooms by the clock, not by who is there. Every cancelled meeting and early finish is paid for anyway.</p></div>
+      <div class="card"><div class="ico">📷</div><h3>Cameras cost privacy</h3><p>Cameras can count people, but nobody wants to be filmed in a meeting room, a classroom or at home.</p></div>
     </div>
   </div>
 </section>
 
-<section id="method">
+<section id="how">
   <div class="wrap">
-    <h2>Every number has a label</h2>
-    <p class="sub">Each figure we publish says where it came from, so you know which ones you can rely on.</p>
-    <div class="labels">
-      <div class="label m"><b>MEASURED</b><p>Read directly from a sensor or instrument, with the raw data attached.</p></div>
-      <div class="label s"><b>CALCULATED</b><p>Worked out from measured values, with the formula shown.</p></div>
-      <div class="label e"><b>ESTIMATED</b><p>Our best guess. We flag these clearly and never present one as a result.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>How an experiment runs</h2>
-    <p class="sub">The same four steps every time, written down before we start.</p>
+    <h2>How it works</h2>
+    <p class="sub">One small sensor on the ceiling or wall. It answers a single question, all the time: is anyone here?</p>
     <ol class="steps">
-      <li><h3>Question</h3><p>One simple thing we want to know, written as plainly as we can.</p></li>
-      <li><h3>Prediction</h3><p>What we expect to happen and why, recorded before any data comes in.</p></li>
-      <li><h3>Measure</h3><p>Repeated readings, with controls and notes on anything that went wrong.</p></li>
-      <li><h3>Share</h3><p>Data, method and a short write-up, including results we did not expect.</p></li>
+      <li><h3>Sense</h3><p>The sensor picks up the tiny movements a person makes just by breathing, so a still person still counts as present.</p></li>
+      <li><h3>Decide on the device</h3><p>Processing happens inside the sensor. It sends out a yes or no, never images or recordings.</p></li>
+      <li><h3>Act</h3><p>Lights, heating, cooling and ventilation follow the real state of the room, through a relay or your building system.</p></li>
     </ol>
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
-    <h2>What we publish</h2>
-    <p class="sub">Things you can open, check and repeat yourself.</p>
-    <ul class="out">
-      <li><b>Raw data</b> as plain CSV files.</li>
-      <li><b>Method notes</b> detailed enough to repeat the experiment.</li>
-      <li><b>Parts lists</b> for every sensor and setup we use.</li>
-      <li><b>Analysis code</b> that turns the data into the charts.</li>
-      <li><b>Photos</b> of the setup as it was actually built.</li>
-      <li><b>A short write-up</b> where every number carries its label.</li>
-    </ul>
+    <h2>How it compares</h2>
+    <p class="sub">What each kind of sensor can and cannot tell you about a room.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th></th><th>Proksolab</th><th>Motion sensor</th><th>Camera</th></tr></thead>
+        <tbody>
+          <tr><td>Detects people sitting still</td><td class="y">Yes</td><td class="n">No</td><td class="y">Yes</td></tr>
+          <tr><td>Captures no images</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">No</td></tr>
+          <tr><td>Works in the dark</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Needs light or IR</td></tr>
+          <tr><td>Fine for private spaces</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Rarely</td></tr>
+          <tr><td>Avoids false "empty" switch-offs</td><td class="y">Yes</td><td class="n">No</td><td class="y">Mostly</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
-<section id="faq">
+<section id="savings">
+  <div class="wrap">
+    <h2>Estimate your savings</h2>
+    <p class="sub">Put in your own numbers. The maths is shown, nothing is hidden, and every default is yours to change.</p>
+    <div class="calc">
+      <form id="calc" oninput="calcRun()">
+        <label>Rooms<input type="number" id="rooms" min="1" value="20"></label>
+        <label>Power used per room while on (W) — lights plus share of heating/cooling<input type="number" id="watts" min="0" value="600"></label>
+        <label>Hours per day the room is empty but still powered<input type="number" id="hours" min="0" max="24" step="0.5" value="3"></label>
+        <label>Working days per year<input type="number" id="days" min="0" max="366" value="250"></label>
+        <label>Electricity price per kWh (€)<input type="number" id="price" min="0" step="0.01" value="0.25"></label>
+        <label>Grid carbon intensity (kg CO₂ per kWh) <span class="chip e">ESTIMATED</span><input type="number" id="co2" min="0" step="0.01" value="0.4"></label>
+      </form>
+      <div class="res">
+        <div><b id="kwh">–</b><span>kWh saved per year <span class="chip">CALCULATED</span></span></div>
+        <div><b id="eur">–</b><span>saved per year</span></div>
+        <div><b id="kg">–</b><span>CO₂ avoided per year</span></div>
+        <p class="note">kWh = rooms × W × hours × days ÷ 1000. Assumes the sensor switches the room off whenever it is empty. Check the grid factor for your country; it varies a lot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Where it fits</h2>
+    <p class="sub">Anywhere a room is often empty but still lit, heated or cooled.</p>
+    <div class="grid three">
+      <div class="card"><div class="ico">🏢</div><h3>Offices</h3><p>Desks and floors that sit half-empty on hybrid working days.</p></div>
+      <div class="card"><div class="ico">🗓️</div><h3>Meeting rooms</h3><p>Free up rooms that are booked but unused, and stop heating no-shows.</p></div>
+      <div class="card"><div class="ico">🏫</div><h3>Schools</h3><p>Classrooms where students sit still for long stretches and cameras are a non-starter.</p></div>
+      <div class="card"><div class="ico">🏨</div><h3>Hotels</h3><p>Climate that follows the guest, not the key card left in the slot.</p></div>
+      <div class="card"><div class="ico">🏠</div><h3>Homes</h3><p>Smart homes that know someone is on the sofa, without a camera in the living room.</p></div>
+      <div class="card"><div class="ico">🚻</div><h3>Washrooms &amp; corridors</h3><p>Spaces where privacy matters and lights are often left on for nobody.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="science">
+  <div class="wrap">
+    <h2>Science first: every number has a label</h2>
+    <p class="sub">Energy claims are easy to inflate. Every figure we give you says where it came from, so you know which ones you can rely on.</p>
+    <div class="labels">
+      <div class="label m"><b>MEASURED</b><p>Logged in your building during a pilot, with the raw data handed to you.</p></div>
+      <div class="label s"><b>CALCULATED</b><p>Worked out from measured values, with the formula written next to it.</p></div>
+      <div class="label e"><b>ESTIMATED</b><p>Our best guess, flagged clearly. We never quote one as a result.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Eco by design</h2>
+    <p class="sub">A sensor that saves energy should not waste it.</p>
+    <div class="grid three">
+      <div class="card"><div class="ico">🔋</div><h3>Low power</h3><p>Designed to use a tiny fraction of the energy it helps you save.</p></div>
+      <div class="card"><div class="ico">🔒</div><h3>Private by default</h3><p>No images, no audio, nothing leaves the device but present or absent.</p></div>
+      <div class="card"><div class="ico">♻️</div><h3>Fits what you have</h3><p>Works with existing lights and building systems, so nothing needs ripping out.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Start with a pilot</h2>
+    <p class="sub">See it work in your own building before you commit to anything.</p>
+    <ol class="steps four">
+      <li><h3>Pick rooms</h3><p>Choose a handful of rooms you suspect are wasting energy.</p></li>
+      <li><h3>Install</h3><p>Sensors go up and start logging alongside your existing setup.</p></li>
+      <li><h3>Measure</h3><p>We record when rooms are really empty versus when they are powered.</p></li>
+      <li><h3>Decide</h3><p>You get a report with measured savings, and decide with real data.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq" class="alt">
   <div class="wrap">
     <h2>Questions</h2>
-    <details><summary>Can I repeat an experiment at home?</summary><p>That is the idea. Every write-up comes with a parts list and method notes so you can try it yourself.</p></details>
-    <details><summary>Is the data free to use?</summary><p>Yes. Use it, check it, and tell us if you find a mistake.</p></details>
-    <details><summary>Can I suggest an experiment?</summary><p>Please do. Send us your question and we will tell you if we can test it.</p></details>
+    <details><summary>Does it record video or audio?</summary><p>No. The sensor has no camera or microphone. It only reports whether someone is present.</p></details>
+    <details><summary>Will the lights turn off while I am sitting still?</summary><p>That is the problem we solve. The sensor detects the small movements of breathing, so a still person keeps the room on.</p></details>
+    <details><summary>Does it work with our building system?</summary><p>It can switch a relay directly or report to a building management system. Tell us what you run and we will confirm.</p></details>
+    <details><summary>How much will we save?</summary><p>It depends on how often your rooms are empty. Use the calculator above for an estimate, then run a pilot to measure it.</p></details>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Got a question worth testing?</h2>
-    <p class="sub">Send us an idea, a result or a correction.</p>
+    <h2>Stop powering empty rooms.</h2>
+    <p class="sub">Tell us about your building and we will propose a pilot. We reply within one working day.</p>
     <!-- TODO: confirm this inbox exists in Google Workspace -->
-    <a class="mail" href="mailto:hello@proksolab.com">hello@proksolab.com</a>
+    <a class="mail" href="mailto:hello@proksolab.com?subject=Pilot%20enquiry">hello@proksolab.com</a>
   </div>
 </section>
 
@@ -210,6 +309,16 @@ btn.onclick = () => {
   apply(t);
   try { localStorage.setItem('theme', t); } catch (e) {}
 };
+
+const v = id => Math.max(0, +document.getElementById(id).value || 0);
+const fmt = n => Math.round(n).toLocaleString();
+function calcRun() {
+  const kwh = v('rooms') * v('watts') * Math.min(v('hours'), 24) * v('days') / 1000;
+  document.getElementById('kwh').textContent = fmt(kwh);
+  document.getElementById('eur').textContent = '€' + fmt(kwh * v('price'));
+  document.getElementById('kg').textContent = fmt(kwh * v('co2')) + ' kg';
+}
+calcRun();
 </script>
 </body>
 </html>
