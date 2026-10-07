@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proksolab</title>
-<meta name="description" content="Proksolab presence detection knows when a room is empty, even when people sit still, and switches off lights and heating without cameras.">
-<meta property="og:title" content="Proksolab: presence detection that saves energy">
-<meta property="og:description" content="Know when a room is really empty. No cameras, works in the dark, and every number is measured.">
+<meta name="description" content="Proksolab builds low-power proximity sensing hardware for product makers, with every performance number measured and labelled.">
+<meta property="og:title" content="Proksolab: low-power proximity sensing hardware">
+<meta property="og:description" content="Proximity sensors that sip power and come with honest, measured specs.">
 <meta property="og:url" content="https://www.proksolab.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f9e5b'/%3E%3Cpath d='M9 23C9 13 16 8 24 8c0 9-6 15-15 15z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,13 +81,6 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:12px}
 .steps h3{font-size:18px;margin:8px 0 6px}
 .steps p{color:var(--dim);font-size:15px}
 
-.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
-table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
-th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
-tr:last-child td{border-bottom:0}
-thead th{font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
-thead th:nth-child(2),td:nth-child(2){background:var(--soft)}
-.y{color:var(--accent);font-weight:600}.n{color:var(--dim)}
 
 .calc{display:grid;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
 @media(min-width:820px){.calc{grid-template-columns:1fr 1fr;gap:40px}}
@@ -129,99 +122,59 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
     <div class="links">
-      <a href="#how">How it works</a><a href="#savings">Savings</a><a href="#science">Science</a><a href="#faq">FAQ</a>
+      <a href="#offer">Products</a><a href="#battery">Battery life</a><a href="#science">Science</a><a href="#faq">FAQ</a>
       <button class="theme" id="theme" type="button" aria-label="Switch theme">🌿 Eco</button>
     </div>
   </nav>
 
   <header class="hero">
     <div>
-      <div class="tag">Presence detection · Energy · Science</div>
-      <h1>Rooms that know when they are <em>really</em> empty.</h1>
-      <p class="lede">Proksolab sensors detect people in a room, even when they sit perfectly still, so lights, heating and cooling switch off only when nobody is there. No cameras. No guessing.</p>
+      <div class="tag">Proximity sensing · Low power · Measured</div>
+      <h1>Proximity sensing that <em>sips</em> power and proves its specs.</h1>
+      <p class="lede">Proksolab builds proximity sensing hardware for product makers. Our sensors tell your device when something is near, use as little energy as possible, and come with test data you can check for yourself.</p>
       <div class="ctas">
-        <a class="cta" href="#contact">Start a pilot →</a>
-        <a class="cta ghost" href="#savings">Estimate your savings</a>
+        <a class="cta" href="#contact">Request an evaluation kit →</a>
+        <a class="cta ghost" href="#battery">Estimate battery life</a>
       </div>
-      <ul class="ticks"><li>No cameras</li><li>Detects still people</li><li>Works in the dark</li><li>Processes on the device</li></ul>
+      <ul class="ticks"><li>Built for battery devices</li><li>Measured, not marketed</li><li>Integration support</li><li>Small-batch to production</li></ul>
     </div>
-    <!-- room floor plan: one seated person, sensor pulse -->
-    <svg class="room" viewBox="0 0 260 200" role="img" aria-label="Floor plan of a room with a sensor detecting a seated person">
-      <rect x="10" y="10" width="240" height="170" rx="6" fill="none" stroke="var(--line)" stroke-width="2"/>
-      <rect x="150" y="110" width="70" height="40" rx="4" fill="var(--soft2)"/>
-      <rect x="40" y="30" width="60" height="30" rx="4" fill="var(--soft2)"/>
-      <circle cx="185" cy="98" r="9" fill="var(--accent)"/>
-      <circle class="wave" cx="185" cy="98" r="6"/><circle class="wave b" cx="185" cy="98" r="6"/>
-      <circle cx="130" cy="14" r="5" fill="var(--ink)"/>
-      <path d="M130 18 L60 180 M130 18 L240 160" stroke="var(--accent)" stroke-dasharray="3 4" opacity=".5"/>
-      <text x="138" y="30">sensor</text><text x="150" y="168">person, still for 40 min</text>
-      <text x="20" y="195">status: OCCUPIED · lights on · HVAC on</text>
+    <!-- sensor module detecting an approaching object -->
+    <svg class="room" viewBox="0 0 260 200" role="img" aria-label="A sensor module detecting an object approaching it">
+      <g stroke="var(--line)" stroke-dasharray="2 4"><path d="M60 20V180M110 20V180M160 20V180M210 20V180"/></g>
+      <rect x="14" y="80" width="30" height="40" rx="5" fill="var(--ink)"/>
+      <rect x="38" y="94" width="6" height="12" rx="2" fill="var(--accent)"/>
+      <circle class="wave" cx="44" cy="100" r="6"/><circle class="wave b" cx="44" cy="100" r="6"/>
+      <path d="M44 100 C90 70,130 70,176 88" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
+      <circle cx="186" cy="100" r="16" fill="var(--soft2)" stroke="var(--accent2)" stroke-width="2"/>
+      <path d="M44 150H186" stroke="var(--accent2)" stroke-width="1.5"/><path d="M44 145V155M186 145V155" stroke="var(--accent2)" stroke-width="1.5"/>
+      <text x="96" y="166">distance</text>
+      <text x="60" y="16">near</text><text x="200" y="16">far</text>
+      <text x="14" y="194">output: OBJECT NEAR · wake device</text>
     </svg>
   </header>
 </div>
 
 <section class="alt">
   <div class="wrap">
-    <h2>Empty rooms still burn energy</h2>
-    <p class="sub">Most buildings decide whether a room is in use with tools that were never built to answer that question.</p>
+    <h2>Why proximity sensing is harder than it looks</h2>
+    <p class="sub">Adding "knows when something is near" to a product sounds simple. Then the real problems show up.</p>
     <div class="grid three">
-      <div class="card"><div class="ico">🙋</div><h3>Motion sensors miss still people</h3><p>A standard motion sensor only sees movement. Someone reading or typing quietly gets plunged into darkness, so people tape over the sensor or set long timeouts.</p></div>
-      <div class="card"><div class="ico">⏱️</div><h3>Timers just guess</h3><p>Schedules heat and light rooms by the clock, not by who is there. Every cancelled meeting and early finish is paid for anyway.</p></div>
-      <div class="card"><div class="ico">📷</div><h3>Cameras cost privacy</h3><p>Cameras can count people, but nobody wants to be filmed in a meeting room, a classroom or at home.</p></div>
+      <div class="card"><div class="ico">🔋</div><h3>It drains the battery</h3><p>A sensor that is always listening can cost more energy than the rest of the product. Battery life becomes the first complaint in reviews.</p></div>
+      <div class="card"><div class="ico">📄</div><h3>Datasheets oversell</h3><p>Best-case numbers measured in perfect conditions rarely survive a real enclosure, real materials and real users.</p></div>
+      <div class="card"><div class="ico">🧩</div><h3>Integration takes months</h3><p>Tuning, enclosure effects and false triggers eat engineering time that should go into your actual product.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section id="offer">
   <div class="wrap">
-    <h2>How it works</h2>
-    <p class="sub">One small sensor on the ceiling or wall. It answers a single question, all the time: is anyone here?</p>
-    <ol class="steps">
-      <li><h3>Sense</h3><p>The sensor picks up the tiny movements a person makes just by breathing, so a still person still counts as present.</p></li>
-      <li><h3>Decide on the device</h3><p>Processing happens inside the sensor. It sends out a yes or no, never images or recordings.</p></li>
-      <li><h3>Act</h3><p>Lights, heating, cooling and ventilation follow the real state of the room, through a relay or your building system.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>How it compares</h2>
-    <p class="sub">What each kind of sensor can and cannot tell you about a room.</p>
-    <div class="tbl">
-      <table>
-        <thead><tr><th></th><th>Proksolab</th><th>Motion sensor</th><th>Camera</th></tr></thead>
-        <tbody>
-          <tr><td>Detects people sitting still</td><td class="y">Yes</td><td class="n">No</td><td class="y">Yes</td></tr>
-          <tr><td>Captures no images</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">No</td></tr>
-          <tr><td>Works in the dark</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Needs light or IR</td></tr>
-          <tr><td>Fine for private spaces</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Rarely</td></tr>
-          <tr><td>Avoids false "empty" switch-offs</td><td class="y">Yes</td><td class="n">No</td><td class="y">Mostly</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section id="savings">
-  <div class="wrap">
-    <h2>Estimate your savings</h2>
-    <p class="sub">Put in your own numbers. The maths is shown, nothing is hidden, and every default is yours to change.</p>
-    <div class="calc">
-      <form id="calc" oninput="calcRun()">
-        <label>Rooms<input type="number" id="rooms" min="1" value="20"></label>
-        <label>Power used per room while on (W) — lights plus share of heating/cooling<input type="number" id="watts" min="0" value="600"></label>
-        <label>Hours per day the room is empty but still powered<input type="number" id="hours" min="0" max="24" step="0.5" value="3"></label>
-        <label>Working days per year<input type="number" id="days" min="0" max="366" value="250"></label>
-        <label>Electricity price per kWh (€)<input type="number" id="price" min="0" step="0.01" value="0.25"></label>
-        <label>Grid carbon intensity (kg CO₂ per kWh) <span class="chip e">ESTIMATED</span><input type="number" id="co2" min="0" step="0.01" value="0.4"></label>
-      </form>
-      <div class="res">
-        <div><b id="kwh">–</b><span>kWh saved per year <span class="chip">CALCULATED</span></span></div>
-        <div><b id="eur">–</b><span>saved per year</span></div>
-        <div><b id="kg">–</b><span>CO₂ avoided per year</span></div>
-        <p class="note">kWh = rooms × W × hours × days ÷ 1000. Assumes the sensor switches the room off whenever it is empty. Check the grid factor for your country; it varies a lot.</p>
-      </div>
+    <h2>What we offer</h2>
+    <p class="sub">From a module you can try this week to a sensor designed around your product.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">📦</div><h3>Sensor modules</h3><p>Ready-made proximity modules you can drop onto your board and talk to from your microcontroller.</p></div>
+      <div class="card"><div class="ico">🧪</div><h3>Evaluation kits</h3><p>A module, a test board and our measurement data, so your team can check performance before committing.</p></div>
+      <div class="card"><div class="ico">🛠️</div><h3>Integration support</h3><p>We help tune detection inside your enclosure and cut false triggers, with measurements at every step.</p></div>
+      <div class="card"><div class="ico">📐</div><h3>Custom designs</h3><p>Need a different range, size or power budget? We design the sensing hardware around your product.</p></div>
     </div>
   </div>
 </section>
@@ -229,71 +182,94 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <section class="alt">
   <div class="wrap">
     <h2>Where it fits</h2>
-    <p class="sub">Anywhere a room is often empty but still lit, heated or cooled.</p>
+    <p class="sub">Anywhere a device should react when something comes close, and sleep the rest of the time.</p>
     <div class="grid three">
-      <div class="card"><div class="ico">🏢</div><h3>Offices</h3><p>Desks and floors that sit half-empty on hybrid working days.</p></div>
-      <div class="card"><div class="ico">🗓️</div><h3>Meeting rooms</h3><p>Free up rooms that are booked but unused, and stop heating no-shows.</p></div>
-      <div class="card"><div class="ico">🏫</div><h3>Schools</h3><p>Classrooms where students sit still for long stretches and cameras are a non-starter.</p></div>
-      <div class="card"><div class="ico">🏨</div><h3>Hotels</h3><p>Climate that follows the guest, not the key card left in the slot.</p></div>
-      <div class="card"><div class="ico">🏠</div><h3>Homes</h3><p>Smart homes that know someone is on the sofa, without a camera in the living room.</p></div>
-      <div class="card"><div class="ico">🚻</div><h3>Washrooms &amp; corridors</h3><p>Spaces where privacy matters and lights are often left on for nobody.</p></div>
+      <div class="card"><div class="ico">💡</div><h3>Smart lighting</h3><p>Lights that wake as someone approaches and stay off otherwise.</p></div>
+      <div class="card"><div class="ico">🚰</div><h3>Touch-free fixtures</h3><p>Taps, dispensers and hand dryers that use water and power only when a hand is there.</p></div>
+      <div class="card"><div class="ico">🖥️</div><h3>Displays &amp; kiosks</h3><p>Screens that wake for a user and sleep when nobody is looking.</p></div>
+      <div class="card"><div class="ico">🤖</div><h3>Robots &amp; machines</h3><p>Knowing when a person or obstacle is close, to slow down or stop.</p></div>
+      <div class="card"><div class="ico">⌚</div><h3>Wearables</h3><p>Detecting when a device is worn or picked up, on a tiny battery.</p></div>
+      <div class="card"><div class="ico">🏠</div><h3>Home appliances</h3><p>Panels and controls that light up as you reach for them.</p></div>
     </div>
   </div>
 </section>
 
-<section id="science">
+<section id="battery">
+  <div class="wrap">
+    <h2>Estimate battery life</h2>
+    <p class="sub">Power is where proximity sensing lives or dies. Plug in your numbers and see what the sensor costs your battery. The maths is shown.</p>
+    <div class="calc">
+      <form id="calc" oninput="calcRun()">
+        <label>Battery capacity (mAh)<input type="number" id="cap" min="1" value="225"></label>
+        <label>Current while measuring (mA)<input type="number" id="act" min="0" step="0.1" value="5"></label>
+        <label>Time per measurement (ms)<input type="number" id="ms" min="0" step="0.1" value="1"></label>
+        <label>Measurements per second<input type="number" id="rate" min="0" step="0.1" value="2"></label>
+        <label>Sleep current (µA)<input type="number" id="sleep" min="0" step="0.1" value="2"></label>
+        <label>Usable share of battery (%) <span class="chip e">ESTIMATED</span><input type="number" id="use" min="1" max="100" value="80"></label>
+      </form>
+      <div class="res">
+        <div><b id="avg">–</b><span>average current <span class="chip">CALCULATED</span></span></div>
+        <div><b id="life">–</b><span>battery life from sensing alone</span></div>
+        <div><b id="days">–</b><span>in days</span></div>
+        <p class="note">Average = active mA × (ms × rate ÷ 1000) + sleep µA ÷ 1000. Life = capacity × usable share ÷ average. Ignores self-discharge, temperature and the rest of your circuit. Defaults are a coin cell and example values, not our specs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="science" class="alt">
   <div class="wrap">
     <h2>Science first: every number has a label</h2>
-    <p class="sub">Energy claims are easy to inflate. Every figure we give you says where it came from, so you know which ones you can rely on.</p>
+    <p class="sub">Sensor specs are easy to inflate. Every figure we give you says where it came from, so you know which ones you can design around.</p>
     <div class="labels">
-      <div class="label m"><b>MEASURED</b><p>Logged in your building during a pilot, with the raw data handed to you.</p></div>
+      <div class="label m"><b>MEASURED</b><p>Taken on the bench or in your enclosure, with the raw data and test setup handed to you.</p></div>
       <div class="label s"><b>CALCULATED</b><p>Worked out from measured values, with the formula written next to it.</p></div>
-      <div class="label e"><b>ESTIMATED</b><p>Our best guess, flagged clearly. We never quote one as a result.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>Eco by design</h2>
-    <p class="sub">A sensor that saves energy should not waste it.</p>
-    <div class="grid three">
-      <div class="card"><div class="ico">🔋</div><h3>Low power</h3><p>Designed to use a tiny fraction of the energy it helps you save.</p></div>
-      <div class="card"><div class="ico">🔒</div><h3>Private by default</h3><p>No images, no audio, nothing leaves the device but present or absent.</p></div>
-      <div class="card"><div class="ico">♻️</div><h3>Fits what you have</h3><p>Works with existing lights and building systems, so nothing needs ripping out.</p></div>
+      <div class="label e"><b>ESTIMATED</b><p>Engineering judgement, flagged clearly. We never quote one as a spec.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Start with a pilot</h2>
-    <p class="sub">See it work in your own building before you commit to anything.</p>
+    <h2>Eco by design</h2>
+    <p class="sub">A sensor's job is often to save energy. It should not waste any of its own.</p>
+    <div class="grid three">
+      <div class="card"><div class="ico">🌱</div><h3>Sleep by default</h3><p>The sensor spends as much time as possible asleep, and wakes your device only when something is near.</p></div>
+      <div class="card"><div class="ico">🔋</div><h3>Fewer batteries</h3><p>Longer battery life means fewer replacements, less waste and fewer service visits.</p></div>
+      <div class="card"><div class="ico">💧</div><h3>Less waste downstream</h3><p>Fixtures, lights and screens that switch on only when needed save water and power for years.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>From first sample to production</h2>
+    <p class="sub">A clear path, with measured results at every step.</p>
     <ol class="steps four">
-      <li><h3>Pick rooms</h3><p>Choose a handful of rooms you suspect are wasting energy.</p></li>
-      <li><h3>Install</h3><p>Sensors go up and start logging alongside your existing setup.</p></li>
-      <li><h3>Measure</h3><p>We record when rooms are really empty versus when they are powered.</p></li>
-      <li><h3>Decide</h3><p>You get a report with measured savings, and decide with real data.</p></li>
+      <li><h3>Evaluate</h3><p>Get a kit and our test data, and try it on your own bench.</p></li>
+      <li><h3>Integrate</h3><p>We help fit the sensor into your enclosure and tune it.</p></li>
+      <li><h3>Validate</h3><p>We measure range, false triggers and power in your real product.</p></li>
+      <li><h3>Produce</h3><p>Modules supplied for your build, with the same test data each batch.</p></li>
     </ol>
   </div>
 </section>
 
-<section id="faq" class="alt">
+<section id="faq">
   <div class="wrap">
     <h2>Questions</h2>
-    <details><summary>Does it record video or audio?</summary><p>No. The sensor has no camera or microphone. It only reports whether someone is present.</p></details>
-    <details><summary>Will the lights turn off while I am sitting still?</summary><p>That is the problem we solve. The sensor detects the small movements of breathing, so a still person keeps the room on.</p></details>
-    <details><summary>Does it work with our building system?</summary><p>It can switch a relay directly or report to a building management system. Tell us what you run and we will confirm.</p></details>
-    <details><summary>How much will we save?</summary><p>It depends on how often your rooms are empty. Use the calculator above for an estimate, then run a pilot to measure it.</p></details>
+    <details><summary>Can we test before buying in volume?</summary><p>Yes. Start with an evaluation kit and our measurement data, and check the results on your own bench.</p></details>
+    <details><summary>Will our enclosure change the performance?</summary><p>Usually, yes. Plastics, glass and metal near the sensor all matter. That is why we measure inside your real enclosure, not just on an open bench.</p></details>
+    <details><summary>Can you design a custom sensor?</summary><p>Yes. Tell us your range, size, power budget and environment, and we will tell you what is realistic.</p></details>
+    <details><summary>How do we connect it to our product?</summary><p>Tell us which microcontroller and interface you use and we will confirm how the sensor connects.</p></details>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Stop powering empty rooms.</h2>
-    <p class="sub">Tell us about your building and we will propose a pilot. We reply within one working day.</p>
+    <h2>Make your product aware, not power hungry.</h2>
+    <p class="sub">Tell us what you are building and we will suggest a sensor or an evaluation kit. We reply within one working day.</p>
     <!-- TODO: confirm this inbox exists in Google Workspace -->
-    <a class="mail" href="mailto:hello@proksolab.com?subject=Pilot%20enquiry">hello@proksolab.com</a>
+    <a class="mail" href="mailto:hello@proksolab.com?subject=Evaluation%20kit%20request">hello@proksolab.com</a>
   </div>
 </section>
 
@@ -311,12 +287,13 @@ btn.onclick = () => {
 };
 
 const v = id => Math.max(0, +document.getElementById(id).value || 0);
-const fmt = n => Math.round(n).toLocaleString();
 function calcRun() {
-  const kwh = v('rooms') * v('watts') * Math.min(v('hours'), 24) * v('days') / 1000;
-  document.getElementById('kwh').textContent = fmt(kwh);
-  document.getElementById('eur').textContent = '€' + fmt(kwh * v('price'));
-  document.getElementById('kg').textContent = fmt(kwh * v('co2')) + ' kg';
+  const duty = Math.min(v('ms') * v('rate') / 1000, 1);
+  const avg = v('act') * duty + v('sleep') / 1000; // mA
+  const hours = avg ? v('cap') * Math.min(v('use'), 100) / 100 / avg : Infinity;
+  document.getElementById('avg').textContent = avg < 1 ? (avg * 1000).toFixed(1) + ' µA' : avg.toFixed(2) + ' mA';
+  document.getElementById('life').textContent = isFinite(hours) ? (hours / 8760).toFixed(1) + ' years' : '∞';
+  document.getElementById('days').textContent = isFinite(hours) ? Math.round(hours / 24).toLocaleString() : '∞';
 }
 calcRun();
 </script>
