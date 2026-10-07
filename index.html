@@ -1,72 +1,82 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="bright">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proksolab</title>
-<meta name="description" content="Proksolab designs and simulates mmWave radar antennas and RF boards, from gerber to link budget.">
-<meta property="og:title" content="Proksolab: mmWave radar antennas and RF boards">
-<meta property="og:description" content="Antenna design, EM simulation, RF PCB layout and radar system analysis for 60 GHz products.">
+<meta name="description" content="Proksolab is a small science project: simple, open experiments on soil, water, air and energy.">
+<meta property="og:title" content="Proksolab: open science experiments">
+<meta property="og:description" content="Simple, open experiments on soil, water, air and energy, with every number labelled.">
 <meta property="og:url" content="https://www.proksolab.com/">
-<meta name="theme-color" content="#0b0d10">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0d10'/%3E%3Cpath d='M16 26C10 18 9 7 16 6s6 12 0 20z' fill='%23ff6a2b'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f9e5b'/%3E%3Cpath d='M9 23C9 13 16 8 24 8c0 9-6 15-15 15z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0d10; --panel:#12161b; --line:#232a33; --ink:#e8ecf1; --dim:#8a96a5;
-  --accent:#ff6a2b; --accent2:#3fd0c9;
-  --sans:"Inter Tight",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+:root,[data-theme="bright"]{
+  --bg:#fbfcfe; --panel:#ffffff; --line:#e3e8ef; --ink:#14202e; --dim:#5b6878;
+  --accent:#ff5a1f; --accent2:#1f7aff; --soft:#fff1e9; --soft2:#e8f1ff; --btn-ink:#fff;
 }
+[data-theme="eco"]{
+  --bg:#f5f2e8; --panel:#fffdf6; --line:#ddd6c2; --ink:#1f2b1d; --dim:#5f6b55;
+  --accent:#2f9e5b; --accent2:#b0761f; --soft:#e3f2e6; --soft2:#f6ebd6; --btn-ink:#fff;
+}
+:root{--serif:"Fraunces",Georgia,serif; --sans:"Inter Tight",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
 a{color:inherit}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
 @media(min-width:720px){.wrap{padding:0 32px}}
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--mono);font-size:14px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;font-family:var(--mono);font-size:14px}
 .logo{font-weight:600;letter-spacing:.04em;text-decoration:none}
 .logo span{color:var(--accent)}
-nav .links a{color:var(--dim);text-decoration:none;margin-left:20px}
-@media(max-width:520px){nav .links a:nth-child(2),nav .links a:nth-child(3){display:none}}
-nav .links a:hover{color:var(--ink)}
+.links{display:flex;align-items:center}
+.links a{color:var(--dim);text-decoration:none;margin-left:20px}
+.links a:hover{color:var(--ink)}
+@media(max-width:560px){.links a:nth-child(2),.links a:nth-child(3){display:none}}
+.theme{margin-left:20px;font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
 
 .hero{display:grid;gap:40px;padding:56px 0 80px;align-items:center}
-@media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr;padding:96px 0 120px}}
+@media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr;padding:88px 0 112px}}
 .tag{font-family:var(--mono);font-size:13px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:clamp(38px,7vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.03em;margin:16px 0 22px}
-h1 em{font-style:normal;color:var(--accent)}
+h1,h2{font-family:var(--serif);letter-spacing:-.02em}
+h1{font-size:clamp(38px,7vw,66px);line-height:1.04;font-weight:800;margin:16px 0 22px}
+h1 em{font-style:italic;color:var(--accent)}
 .lede{color:var(--dim);font-size:18px;max-width:34em}
-.cta{display:inline-block;margin-top:32px;background:var(--accent);color:#120800;font-weight:600;text-decoration:none;padding:14px 22px;border-radius:6px}
-.cta:hover{filter:brightness(1.1)}
-.pattern{width:100%;max-width:400px;justify-self:center}
+.cta{display:inline-block;margin-top:32px;background:var(--accent);color:var(--btn-ink);font-weight:600;text-decoration:none;padding:14px 22px;border-radius:999px}
+.cta:hover{filter:brightness(1.08)}
+.chart{width:100%;max-width:420px;justify-self:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.chart text{font:10px var(--mono);fill:var(--dim)}
 
 section{padding:72px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:12px}
+h2{font-size:clamp(28px,4vw,38px);font-weight:600;margin-bottom:12px}
 .sub{color:var(--dim);max-width:40em;margin-bottom:40px}
 
-.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.grid{display:grid;gap:16px}
 @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:var(--panel);padding:28px}
-.card .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
-.card h3{font-size:20px;margin:8px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--soft)}
+.card:nth-child(even) .ico{background:var(--soft2)}
+.card h3{font-size:20px;margin:14px 0 6px}
 .card p{color:var(--dim);font-size:15px}
 
 .labels{display:grid;gap:16px}
 @media(min-width:720px){.labels{grid-template-columns:repeat(3,1fr)}}
-.label{border:1px solid var(--line);border-radius:10px;padding:24px}
+.label{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:24px}
 .label b{font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:3px 8px;border-radius:4px}
-.m b{background:rgba(63,208,201,.12);color:var(--accent2)}
-.s b{background:rgba(255,106,43,.12);color:var(--accent)}
-.e b{background:rgba(138,150,165,.15);color:var(--dim)}
+.m b{background:var(--soft);color:var(--accent)}
+.s b{background:var(--soft2);color:var(--accent2)}
+.e b{background:var(--line);color:var(--dim)}
 .label p{color:var(--dim);font-size:15px;margin-top:14px}
 
 .steps{display:grid;gap:16px;counter-reset:s;padding:0;list-style:none}
 @media(min-width:720px){.steps{grid-template-columns:repeat(4,1fr)}}
-.steps li{border-top:2px solid var(--line);padding-top:18px}
-.steps li::before{counter-increment:s;content:"0" counter(s);font:12px var(--mono);color:var(--accent2)}
+.steps li{border-top:3px solid var(--accent);padding-top:18px}
+.steps li:nth-child(even){border-color:var(--accent2)}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:12px var(--mono);color:var(--dim)}
 .steps h3{font-size:18px;margin:8px 0 6px}
 .steps p{color:var(--dim);font-size:15px}
 
@@ -82,7 +92,6 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
 details[open] summary::after{content:"−"}
 details p{color:var(--dim);margin-top:10px;font-size:15px}
-:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
 
 .contact{text-align:center}
 .contact .sub{margin:0 auto 8px}
@@ -94,80 +103,79 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <div class="wrap">
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
-    <div class="links"><a href="#work">Work</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+    <div class="links">
+      <a href="#study">Study</a><a href="#method">Method</a><a href="#faq">FAQ</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch theme">🌿 Eco</button>
+    </div>
   </nav>
 
   <header class="hero">
     <div>
-      <div class="tag">mmWave · RF · Radar</div>
-      <h1>Antennas that <em>work</em> before the first board is made.</h1>
-      <p class="lede">Proksolab designs, simulates and debugs 60&nbsp;GHz radar antennas and RF boards. We take you from gerbers to field patterns to a link budget that holds up.</p>
-      <a class="cta" href="#contact">Start a project →</a>
+      <div class="tag">Open science · Experiments · Data</div>
+      <h1>Small experiments, <em>honest</em> numbers.</h1>
+      <p class="lede">Proksolab is a science project. We run simple experiments on soil, water, air and energy, and we publish the data and the method so anyone can repeat them.</p>
+      <a class="cta" href="#study">See what we study →</a>
     </div>
-    <!-- polar radiation pattern motif -->
-    <svg class="pattern" viewBox="-110 -110 220 220" aria-hidden="true">
-      <g fill="none" stroke="#232a33">
-        <circle r="100"/><circle r="75"/><circle r="50"/><circle r="25"/>
-        <path d="M-100 0H100M0-100V100M-71-71L71 71M-71 71L71-71"/>
-      </g>
-      <path fill="rgba(255,106,43,.14)" stroke="#ff6a2b" stroke-width="2"
-        d="M0 0 C-30 -40,-34 -92,0 -96 C34 -92,30 -40,0 0 C-20 -6,-52 -20,-58 -6 C-60 4,-30 6,0 0 C30 6,60 4,58 -6 C52 -20,20 -6,0 0Z"/>
-      <path fill="none" stroke="#3fd0c9" stroke-width="1.5" stroke-dasharray="3 4"
-        d="M0 0 C-40 -30,-52 -80,0 -86 C52 -80,40 -30,0 0"/>
-      <circle r="3" fill="#e8ecf1"/>
+    <!-- decorative growth chart -->
+    <svg class="chart" viewBox="0 0 240 170" aria-hidden="true">
+      <g stroke="var(--line)"><path d="M30 10V140H230"/><path d="M30 105H230M30 70H230M30 35H230" stroke-dasharray="2 4"/></g>
+      <path d="M30 132 C70 128,90 110,120 92 S180 40,225 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30 136 C70 134,100 126,130 116 S190 92,225 84" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+      <g fill="var(--accent)"><circle cx="70" cy="125" r="3.5"/><circle cx="120" cy="92" r="3.5"/><circle cx="170" cy="52" r="3.5"/><circle cx="225" cy="24" r="3.5"/></g>
+      <text x="30" y="158">day 0</text><text x="200" y="158">day 28</text>
     </svg>
   </header>
 </div>
 
-<section id="work">
+<section id="study">
   <div class="wrap">
-    <h2>What we do</h2>
-    <p class="sub">Hardware engineering for teams building radar and RF products. We can handle one piece of the design or the whole chain.</p>
+    <h2>What we study</h2>
+    <p class="sub">Everyday questions about the environment, tested with cheap sensors, careful notes and a lot of patience.</p>
     <div class="grid">
-      <div class="card"><div class="n">01</div><h3>Antenna design</h3><p>Series-fed patch arrays, MIMO TX/RX layouts and radome tuning for 60&nbsp;GHz radar chips.</p></div>
-      <div class="card"><div class="n">02</div><h3>EM simulation</h3><p>Full-wave HFSS and openEMS models: S-parameters, 3D patterns and package and mold sensitivity sweeps.</p></div>
-      <div class="card"><div class="n">03</div><h3>RF PCB layout</h3><p>KiCad boards with BGA fan-out, controlled-impedance feeds and design-for-manufacturing review before fab.</p></div>
-      <div class="card"><div class="n">04</div><h3>Radar system analysis</h3><p>Link budgets, coverage maps and waveform checks, so you know the minimum detectable target before you commit.</p></div>
+      <div class="card"><div class="ico">🌱</div><h3>Soil</h3><p>Moisture, compost and how different mixes change how fast plants grow.</p></div>
+      <div class="card"><div class="ico">💧</div><h3>Water</h3><p>Rainwater collection, filtering and how clean the result really is.</p></div>
+      <div class="card"><div class="ico">🌬️</div><h3>Air</h3><p>Indoor CO₂ and particles, and what opening a window actually does.</p></div>
+      <div class="card"><div class="ico">☀️</div><h3>Energy</h3><p>Small solar panels, batteries and how much power a sunny day gives.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <h2>Every number has a label</h2>
+    <p class="sub">Each figure we publish says where it came from, so you know which ones you can rely on.</p>
+    <div class="labels">
+      <div class="label m"><b>MEASURED</b><p>Read directly from a sensor or instrument, with the raw data attached.</p></div>
+      <div class="label s"><b>CALCULATED</b><p>Worked out from measured values, with the formula shown.</p></div>
+      <div class="label e"><b>ESTIMATED</b><p>Our best guess. We flag these clearly and never present one as a result.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Every number has a label</h2>
-    <p class="sub">Each figure in our reports says where it came from, so you know which ones you can rely on.</p>
-    <div class="labels">
-      <div class="label m"><b>MEASURED</b><p>Read directly from your gerbers, drawings or bench data.</p></div>
-      <div class="label s"><b>SOLVED</b><p>Computed by a full-wave field solver on a model we can hand you.</p></div>
-      <div class="label e"><b>ESTIMATED</b><p>Engineering judgement. We flag these clearly, and we never quote one as a result.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <h2>How a project runs</h2>
-    <p class="sub">Short loops, written results, and no surprises when the boards come back.</p>
+    <h2>How an experiment runs</h2>
+    <p class="sub">The same four steps every time, written down before we start.</p>
     <ol class="steps">
-      <li><h3>Send what you have</h3><p>Gerbers, stackup, chip datasheet, or just the requirements on a page.</p></li>
-      <li><h3>Scope</h3><p>We say what we will model, what we will measure from your files, and what stays an estimate.</p></li>
-      <li><h3>Design &amp; solve</h3><p>Layout changes and full-wave runs, with checkpoints so you can steer early.</p></li>
-      <li><h3>Hand-off</h3><p>A report, the models behind it, and fab-ready files if we touched the board.</p></li>
+      <li><h3>Question</h3><p>One simple thing we want to know, written as plainly as we can.</p></li>
+      <li><h3>Prediction</h3><p>What we expect to happen and why, recorded before any data comes in.</p></li>
+      <li><h3>Measure</h3><p>Repeated readings, with controls and notes on anything that went wrong.</p></li>
+      <li><h3>Share</h3><p>Data, method and a short write-up, including results we did not expect.</p></li>
     </ol>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>What you get</h2>
-    <p class="sub">Things your team can open, rerun and check, not just slides.</p>
+    <h2>What we publish</h2>
+    <p class="sub">Things you can open, check and repeat yourself.</p>
     <ul class="out">
-      <li><b>S-parameters</b> as Touchstone files for every port we simulate.</li>
-      <li><b>3D radiation patterns</b> with gain, beamwidth and sidelobe numbers.</li>
-      <li><b>Simulation projects</b> you can rerun after we are done.</li>
-      <li><b>KiCad files</b> with DFM notes, ready to send to fab.</li>
-      <li><b>Link budget</b> showing range against target size.</li>
-      <li><b>A written report</b> where every number carries its label.</li>
+      <li><b>Raw data</b> as plain CSV files.</li>
+      <li><b>Method notes</b> detailed enough to repeat the experiment.</li>
+      <li><b>Parts lists</b> for every sensor and setup we use.</li>
+      <li><b>Analysis code</b> that turns the data into the charts.</li>
+      <li><b>Photos</b> of the setup as it was actually built.</li>
+      <li><b>A short write-up</b> where every number carries its label.</li>
     </ul>
   </div>
 </section>
@@ -175,17 +183,16 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <section id="faq">
   <div class="wrap">
     <h2>Questions</h2>
-    <details><summary>Can you work from gerbers alone?</summary><p>Yes. We rebuild the stackup and geometry from the files and flag anything we had to assume, such as material values.</p></details>
-    <details><summary>Do we keep the simulation models?</summary><p>Yes. The models are part of the hand-off, so your team can rerun them or extend them later.</p></details>
-    <details><summary>Can you take on just one part of the design?</summary><p>Yes. Many projects are a single antenna review or one simulation sweep. We can also run the whole chain from antenna to link budget.</p></details>
-    <details><summary>Our board already failed. Can you help?</summary><p>Send the files and what you saw on the bench. Debugging a board that has already been built is a good place to start.</p></details>
+    <details><summary>Can I repeat an experiment at home?</summary><p>That is the idea. Every write-up comes with a parts list and method notes so you can try it yourself.</p></details>
+    <details><summary>Is the data free to use?</summary><p>Yes. Use it, check it, and tell us if you find a mistake.</p></details>
+    <details><summary>Can I suggest an experiment?</summary><p>Please do. Send us your question and we will tell you if we can test it.</p></details>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>Have a board that needs to see further?</h2>
-    <p class="sub">Send us your gerbers or your requirements. We reply within one working day.</p>
+    <h2>Got a question worth testing?</h2>
+    <p class="sub">Send us an idea, a result or a correction.</p>
     <!-- TODO: confirm this inbox exists in Google Workspace -->
     <a class="mail" href="mailto:hello@proksolab.com">hello@proksolab.com</a>
   </div>
@@ -194,5 +201,15 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <div class="wrap">
   <footer><span>© 2026 Proksolab</span><span>proksolab.com</span></footer>
 </div>
+<script>
+const root = document.documentElement, btn = document.getElementById('theme');
+const apply = t => { root.dataset.theme = t; btn.textContent = t === 'eco' ? '☀️ Bright' : '🌿 Eco'; };
+try { apply(localStorage.getItem('theme') || 'bright'); } catch (e) {}
+btn.onclick = () => {
+  const t = root.dataset.theme === 'eco' ? 'bright' : 'eco';
+  apply(t);
+  try { localStorage.setItem('theme', t); } catch (e) {}
+};
+</script>
 </body>
 </html>
