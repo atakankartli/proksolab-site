@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proksolab</title>
+<meta name="description" content="Proksolab designs and simulates mmWave radar antennas and RF boards, from gerber to link budget.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d10; --panel:#12161b; --line:#232a33; --ink:#e8ecf1; --dim:#8a96a5;
+  --accent:#ff6a2b; --accent2:#3fd0c9;
+  --sans:"Inter Tight",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--mono);font-size:14px}
+.logo{font-weight:600;letter-spacing:.04em;text-decoration:none}
+.logo span{color:var(--accent)}
+nav .links a{color:var(--dim);text-decoration:none;margin-left:20px}
+nav .links a:hover{color:var(--ink)}
+
+.hero{display:grid;gap:40px;padding:56px 0 80px;align-items:center}
+@media(min-width:880px){.hero{grid-template-columns:1.15fr .85fr;padding:96px 0 120px}}
+.tag{font-family:var(--mono);font-size:13px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.03em;margin:16px 0 22px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--dim);font-size:18px;max-width:34em}
+.cta{display:inline-block;margin-top:32px;background:var(--accent);color:#120800;font-weight:600;text-decoration:none;padding:14px 22px;border-radius:6px}
+.cta:hover{filter:brightness(1.1)}
+.pattern{width:100%;max-width:400px;justify-self:center}
+
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:12px}
+.sub{color:var(--dim);max-width:40em;margin-bottom:40px}
+
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--panel);padding:28px}
+.card .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.card h3{font-size:20px;margin:8px 0}
+.card p{color:var(--dim);font-size:15px}
+
+.labels{display:grid;gap:16px}
+@media(min-width:720px){.labels{grid-template-columns:repeat(3,1fr)}}
+.label{border:1px solid var(--line);border-radius:10px;padding:24px}
+.label b{font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:3px 8px;border-radius:4px}
+.m b{background:rgba(63,208,201,.12);color:var(--accent2)}
+.s b{background:rgba(255,106,43,.12);color:var(--accent)}
+.e b{background:rgba(138,150,165,.15);color:var(--dim)}
+.label p{color:var(--dim);font-size:15px;margin-top:14px}
+
+.contact{text-align:center}
+.contact .sub{margin:0 auto 8px}
+.mail{font-family:var(--mono);font-size:clamp(18px,4vw,28px);color:var(--accent);text-decoration:none;word-break:break-all}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13px var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">PROKSO<span>LAB</span></a>
+    <div class="links"><a href="#work">Work</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="tag">mmWave · RF · Radar</div>
+      <h1>Antennas that <em>work</em> before the first board is made.</h1>
+      <p class="lede">Proksolab designs, simulates and debugs 60&nbsp;GHz radar antennas and RF boards. We take you from gerbers to field patterns to a link budget that holds up.</p>
+      <a class="cta" href="#contact">Start a project →</a>
+    </div>
+    <!-- polar radiation pattern motif -->
+    <svg class="pattern" viewBox="-110 -110 220 220" aria-hidden="true">
+      <g fill="none" stroke="#232a33">
+        <circle r="100"/><circle r="75"/><circle r="50"/><circle r="25"/>
+        <path d="M-100 0H100M0-100V100M-71-71L71 71M-71 71L71-71"/>
+      </g>
+      <path fill="rgba(255,106,43,.14)" stroke="#ff6a2b" stroke-width="2"
+        d="M0 0 C-30 -40,-34 -92,0 -96 C34 -92,30 -40,0 0 C-20 -6,-52 -20,-58 -6 C-60 4,-30 6,0 0 C30 6,60 4,58 -6 C52 -20,20 -6,0 0Z"/>
+      <path fill="none" stroke="#3fd0c9" stroke-width="1.5" stroke-dasharray="3 4"
+        d="M0 0 C-40 -30,-52 -80,0 -86 C52 -80,40 -30,0 0"/>
+      <circle r="3" fill="#e8ecf1"/>
+    </svg>
+  </header>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="sub">Hardware engineering for teams building radar and RF products. We can handle one piece of the design or the whole chain.</p>
+    <div class="grid">
+      <div class="card"><div class="n">01</div><h3>Antenna design</h3><p>Series-fed patch arrays, MIMO TX/RX layouts and radome tuning for 60&nbsp;GHz radar chips.</p></div>
+      <div class="card"><div class="n">02</div><h3>EM simulation</h3><p>Full-wave HFSS and openEMS models: S-parameters, 3D patterns and package and mold sensitivity sweeps.</p></div>
+      <div class="card"><div class="n">03</div><h3>RF PCB layout</h3><p>KiCad boards with BGA fan-out, controlled-impedance feeds and design-for-manufacturing review before fab.</p></div>
+      <div class="card"><div class="n">04</div><h3>Radar system analysis</h3><p>Link budgets, coverage maps and waveform checks, so you know the minimum detectable target before you commit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Every number has a label</h2>
+    <p class="sub">Each figure in our reports says where it came from, so you know which ones you can rely on.</p>
+    <div class="labels">
+      <div class="label m"><b>MEASURED</b><p>Read directly from your gerbers, drawings or bench data.</p></div>
+      <div class="label s"><b>SOLVED</b><p>Computed by a full-wave field solver on a model we can hand you.</p></div>
+      <div class="label e"><b>ESTIMATED</b><p>Engineering judgement. We flag these clearly, and we never quote one as a result.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Have a board that needs to see further?</h2>
+    <p class="sub">Send us your gerbers or your requirements. We reply within one working day.</p>
+    <!-- TODO: confirm this inbox exists in Google Workspace -->
+    <a class="mail" href="mailto:hello@proksolab.com">hello@proksolab.com</a>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer><span>© 2026 Proksolab</span><span>proksolab.com</span></footer>
+</div>
+</body>
+</html>
