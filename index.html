@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proksolab</title>
 <meta name="description" content="Proksolab designs and simulates mmWave radar antennas and RF boards, from gerber to link budget.">
+<meta property="og:title" content="Proksolab: mmWave radar antennas and RF boards">
+<meta property="og:description" content="Antenna design, EM simulation, RF PCB layout and radar system analysis for 60 GHz products.">
+<meta property="og:url" content="https://www.proksolab.com/">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0d10'/%3E%3Cpath d='M16 26C10 18 9 7 16 6s6 12 0 20z' fill='%23ff6a2b'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -25,6 +30,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0
 .logo{font-weight:600;letter-spacing:.04em;text-decoration:none}
 .logo span{color:var(--accent)}
 nav .links a{color:var(--dim);text-decoration:none;margin-left:20px}
+@media(max-width:520px){nav .links a:nth-child(2),nav .links a:nth-child(3){display:none}}
 nav .links a:hover{color:var(--ink)}
 
 .hero{display:grid;gap:40px;padding:56px 0 80px;align-items:center}
@@ -57,6 +63,27 @@ h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:12px}
 .e b{background:rgba(138,150,165,.15);color:var(--dim)}
 .label p{color:var(--dim);font-size:15px;margin-top:14px}
 
+.steps{display:grid;gap:16px;counter-reset:s;padding:0;list-style:none}
+@media(min-width:720px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{border-top:2px solid var(--line);padding-top:18px}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:12px var(--mono);color:var(--accent2)}
+.steps h3{font-size:18px;margin:8px 0 6px}
+.steps p{color:var(--dim);font-size:15px}
+
+.out{display:grid;gap:10px 32px;padding:0;list-style:none;font-size:15px}
+@media(min-width:720px){.out{grid-template-columns:1fr 1fr}}
+.out li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative;color:var(--dim)}
+.out li b{color:var(--ink);font-weight:600}
+.out li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+
+details{border-bottom:1px solid var(--line);padding:18px 0;max-width:46em}
+summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
+details[open] summary::after{content:"−"}
+details p{color:var(--dim);margin-top:10px;font-size:15px}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+
 .contact{text-align:center}
 .contact .sub{margin:0 auto 8px}
 .mail{font-family:var(--mono);font-size:clamp(18px,4vw,28px);color:var(--accent);text-decoration:none;word-break:break-all}
@@ -67,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <div class="wrap">
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
-    <div class="links"><a href="#work">Work</a><a href="#contact">Contact</a></div>
+    <div class="links"><a href="#work">Work</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
   </nav>
 
   <header class="hero">
@@ -114,6 +141,44 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
       <div class="label s"><b>SOLVED</b><p>Computed by a full-wave field solver on a model we can hand you.</p></div>
       <div class="label e"><b>ESTIMATED</b><p>Engineering judgement. We flag these clearly, and we never quote one as a result.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <h2>How a project runs</h2>
+    <p class="sub">Short loops, written results, and no surprises when the boards come back.</p>
+    <ol class="steps">
+      <li><h3>Send what you have</h3><p>Gerbers, stackup, chip datasheet, or just the requirements on a page.</p></li>
+      <li><h3>Scope</h3><p>We say what we will model, what we will measure from your files, and what stays an estimate.</p></li>
+      <li><h3>Design &amp; solve</h3><p>Layout changes and full-wave runs, with checkpoints so you can steer early.</p></li>
+      <li><h3>Hand-off</h3><p>A report, the models behind it, and fab-ready files if we touched the board.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="sub">Things your team can open, rerun and check, not just slides.</p>
+    <ul class="out">
+      <li><b>S-parameters</b> as Touchstone files for every port we simulate.</li>
+      <li><b>3D radiation patterns</b> with gain, beamwidth and sidelobe numbers.</li>
+      <li><b>Simulation projects</b> you can rerun after we are done.</li>
+      <li><b>KiCad files</b> with DFM notes, ready to send to fab.</li>
+      <li><b>Link budget</b> showing range against target size.</li>
+      <li><b>A written report</b> where every number carries its label.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Can you work from gerbers alone?</summary><p>Yes. We rebuild the stackup and geometry from the files and flag anything we had to assume, such as material values.</p></details>
+    <details><summary>Do we keep the simulation models?</summary><p>Yes. The models are part of the hand-off, so your team can rerun them or extend them later.</p></details>
+    <details><summary>Can you take on just one part of the design?</summary><p>Yes. Many projects are a single antenna review or one simulation sweep. We can also run the whole chain from antenna to link budget.</p></details>
+    <details><summary>Our board already failed. Can you help?</summary><p>Send the files and what you saw on the bench. Debugging a board that has already been built is a good place to start.</p></details>
   </div>
 </section>
 
