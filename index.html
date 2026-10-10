@@ -111,8 +111,49 @@ summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
 details[open] summary::after{content:"−"}
 details p{color:var(--dim);margin-top:10px;font-size:15px}
 
-.contact{text-align:center;background:var(--soft)}
-.contact .sub{margin:0 auto 24px}
+.plans{display:grid;gap:16px}
+@media(min-width:820px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+.plan.hot{border:2px solid var(--accent);position:relative}
+.plan.hot::before{content:"MOST POPULAR";position:absolute;top:-11px;left:24px;font:11px var(--mono);letter-spacing:.08em;background:var(--accent);color:var(--btn-ink);padding:3px 8px;border-radius:4px}
+.plan h3{font-size:20px}
+.price{font:800 40px var(--serif);margin:10px 0 2px}
+.price small{font:14px var(--sans);color:var(--dim)}
+.plan ul{padding:0;list-style:none;margin:18px 0 24px;flex:1}
+.plan li{padding:7px 0 7px 24px;position:relative;color:var(--dim);font-size:15px;border-bottom:1px solid var(--line)}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--accent)}
+.plan .cta{text-align:center;font:600 16px var(--sans);cursor:pointer}
+.plan .cta:not(.ghost){border:0}
+
+.locked{position:relative;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.locked .blur{filter:blur(5px);user-select:none;margin-top:12px;font:13px/1.7 var(--mono);color:var(--dim)}
+.badge{display:inline-block;font:11px var(--mono);letter-spacing:.08em;background:var(--ink);color:var(--bg);padding:3px 8px;border-radius:4px}
+.locked:hover{border-color:var(--accent)}
+.locked .open{display:block;margin-top:14px;color:var(--accent);font-weight:600;font-size:15px}
+
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);padding:28px;width:min(440px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(10,20,30,.45)}
+dialog h3{font:600 24px var(--serif);margin-bottom:6px}
+dialog p{color:var(--dim);font-size:15px;margin-bottom:18px}
+.form label{display:block;font-size:14px;color:var(--dim);margin-bottom:14px;text-align:left}
+.form input,.form select,.form textarea{display:block;width:100%;margin-top:6px;font:16px var(--sans);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.form .cta{border:0;cursor:pointer;font:600 16px var(--sans);width:100%}
+.x{float:right;background:none;border:0;font-size:22px;color:var(--dim);cursor:pointer;line-height:1}
+.signin{margin-left:20px;font:inherit;font-size:13px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+
+.contact{background:var(--soft)}
+.contact .two{display:grid;gap:32px}
+@media(min-width:820px){.contact .two{grid-template-columns:.9fr 1.1fr;gap:56px}}
+.contact .form{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.reach{list-style:none;padding:0;margin-top:24px;font-size:15px}
+.reach li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--dim)}
+.reach b{display:block;color:var(--ink);font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.foot{display:grid;gap:28px;padding:48px 0 8px;font-size:14px}
+@media(min-width:720px){.foot{grid-template-columns:1.4fr repeat(3,1fr)}}
+.foot h4{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.foot a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.foot a:hover{color:var(--accent)}
+.foot p{color:var(--dim)}
 .mail{font-family:var(--mono);font-size:clamp(18px,4vw,28px);color:var(--accent);text-decoration:none;word-break:break-all}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13px var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
@@ -122,8 +163,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
     <div class="links">
-      <a href="#offer">Products</a><a href="#battery">Battery life</a><a href="#science">Science</a><a href="#faq">FAQ</a>
+      <a href="#offer">Products</a><a href="#science">Science</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
       <button class="theme" id="theme" type="button" aria-label="Switch theme">🌿 Eco</button>
+      <button class="signin" type="button" data-gate="Customer portal">Sign in</button>
     </div>
   </nav>
 
@@ -254,6 +296,49 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
   </div>
 </section>
 
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="sub">Start small, pay for what you use, and move to volume pricing when you are ready. Prices exclude VAT and shipping.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Evaluation kit</h3>
+        <div class="price">€149 <small>one-off</small></div>
+        <p class="note">For testing on your own bench.</p>
+        <ul><li>2 sensor modules</li><li>Test board with USB</li><li>Bench test report</li><li>Email support for 30 days</li></ul>
+        <button class="cta ghost" type="button" data-gate="Evaluation kit order">Order a kit</button>
+      </div>
+      <div class="plan hot">
+        <h3>Integration</h3>
+        <div class="price">€4,900 <small>per project</small></div>
+        <p class="note">For getting it right inside your product.</p>
+        <ul><li>Everything in the kit</li><li>Tuning in your enclosure</li><li>Range, false-trigger and power report</li><li>Two review calls with our engineers</li><li>Full resource library access</li></ul>
+        <button class="cta" type="button" data-gate="Integration project">Start a project</button>
+      </div>
+      <div class="plan">
+        <h3>Production</h3>
+        <div class="price">Custom <small>volume pricing</small></div>
+        <p class="note">For builds of 1,000 units and up.</p>
+        <ul><li>Volume module pricing</li><li>Per-batch test data</li><li>Custom range or form factor</li><li>Priority engineering support</li></ul>
+        <button class="cta ghost" type="button" data-gate="Production quote">Get a quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="wrap">
+    <h2>Resource library</h2>
+    <p class="sub">Datasheets, full test reports and reference designs are available to customers and approved evaluators.</p>
+    <div class="grid">
+      <button class="card locked" type="button" data-gate="Datasheet"><span class="badge">🔒 CUSTOMERS</span><h3>Datasheet</h3><div class="blur" aria-hidden="true">Supply 1.8–3.3 V · Sleep current ██ µA · Range ██–███ mm · Interface ███ · Package ██ × ██ mm</div><span class="open">Request access →</span></button>
+      <button class="card locked" type="button" data-gate="Bench test report"><span class="badge">🔒 CUSTOMERS</span><h3>Bench test report</h3><div class="blur" aria-hidden="true">Detection rate ██.█ % at ███ mm · False triggers ██ per hour · Temp −██ to ██ °C · n = ███</div><span class="open">Request access →</span></button>
+      <button class="card locked" type="button" data-gate="Enclosure tuning guide"><span class="badge">🔒 CUSTOMERS</span><h3>Enclosure tuning guide</h3><div class="blur" aria-hidden="true">ABS ██ mm: −█ % range · Glass ██ mm: −██ % · Keep-out ██ mm around the window</div><span class="open">Request access →</span></button>
+      <button class="card locked" type="button" data-gate="Reference design files"><span class="badge">🔒 CUSTOMERS</span><h3>Reference design files</h3><div class="blur" aria-hidden="true">Schematic · PCB layout · BOM · Example firmware for ███ and ███</div><span class="open">Request access →</span></button>
+    </div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <h2>Questions</h2>
@@ -265,16 +350,46 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 </section>
 
 <section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Make your product aware, not power hungry.</h2>
-    <p class="sub">Tell us what you are building and we will suggest a sensor or an evaluation kit. We reply within one working day.</p>
-    <!-- TODO: confirm this inbox exists in Google Workspace -->
-    <a class="mail" href="mailto:hello@proksolab.com?subject=Evaluation%20kit%20request">hello@proksolab.com</a>
+  <div class="wrap two">
+    <div>
+      <h2>Make your product aware, not power hungry.</h2>
+      <p class="sub">Tell us what you are building and we will suggest a sensor, a kit or a project. We reply within one working day.</p>
+      <ul class="reach">
+        <li><b>Sales &amp; general</b>hello@proksolab.com</li>
+        <li><b>Response time</b>Within one working day</li>
+      </ul>
+    </div>
+    <!-- TODO: confirm hello@proksolab.com exists in Google Workspace -->
+    <form class="form" id="contactForm">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Company<input name="company" autocomplete="organization"></label>
+      <label>I'm interested in<select name="topic"><option>Evaluation kit</option><option>Integration project</option><option>Production quote</option><option>Custom design</option><option>Something else</option></select></label>
+      <label>What are you building?<textarea name="msg" rows="4"></textarea></label>
+      <button class="cta" type="submit">Send message →</button>
+    </form>
   </div>
 </section>
 
+<dialog id="gate">
+  <form class="form" id="gateForm">
+    <button class="x" type="button" aria-label="Close" onclick="gate.close()">×</button>
+    <h3 id="gateTitle">Request access</h3>
+    <p>Leave your details and our team will get you set up, usually within one working day.</p>
+    <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+    <label>Company<input name="company" required autocomplete="organization"></label>
+    <button class="cta" type="submit">Request access →</button>
+  </form>
+</dialog>
+
 <div class="wrap">
-  <footer><span>© 2026 Proksolab</span><span>proksolab.com</span></footer>
+  <div class="foot">
+    <div><a class="logo" href="#">PROKSO<span>LAB</span></a><p>Low-power proximity sensing hardware, with every number measured.</p></div>
+    <div><h4>Product</h4><a href="#offer">Modules &amp; kits</a><a href="#pricing">Pricing</a><a href="#battery">Battery calculator</a></div>
+    <div><h4>Resources</h4><a href="#resources">Library</a><a href="#science">Our method</a><a href="#faq">FAQ</a></div>
+    <div><h4>Company</h4><a href="#contact">Contact</a><a href="mailto:hello@proksolab.com">hello@proksolab.com</a></div>
+  </div>
+  <footer><span>© 2026 Proksolab. All rights reserved.</span><span>proksolab.com</span></footer>
 </div>
 <script>
 const root = document.documentElement, btn = document.getElementById('theme');
@@ -296,6 +411,20 @@ function calcRun() {
   document.getElementById('days').textContent = isFinite(hours) ? Math.round(hours / 24).toLocaleString() : '∞';
 }
 calcRun();
+
+// ponytail: static site, so forms hand off to the visitor's mail app; swap in a form service if leads get lost
+const mail = (subject, f) => {
+  const body = [...new FormData(f)].map(([k, x]) => `${k}: ${x}`).join('\n');
+  location.href = `mailto:hello@proksolab.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+const gate = document.getElementById('gate'), gateForm = document.getElementById('gateForm'), gateTitle = document.getElementById('gateTitle');
+document.querySelectorAll('[data-gate]').forEach(b => b.onclick = () => {
+  gateTitle.textContent = b.dataset.gate;
+  gate.showModal();
+});
+gateForm.onsubmit = e => { e.preventDefault(); mail('Access request: ' + gateTitle.textContent, gateForm); gate.close(); };
+const contactForm = document.getElementById('contactForm');
+contactForm.onsubmit = e => { e.preventDefault(); mail('Enquiry: ' + contactForm.topic.value, contactForm); };
 </script>
 </body>
 </html>
