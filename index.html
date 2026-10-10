@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proksolab</title>
-<meta name="description" content="Proksolab builds low-power proximity sensing hardware for product makers, with every performance number measured and labelled.">
-<meta property="og:title" content="Proksolab: low-power proximity sensing hardware">
-<meta property="og:description" content="Proximity sensors that sip power and come with honest, measured specs.">
+<meta name="description" content="Proksolab builds AI-assisted simulation tools for RF and hardware engineers: from gerbers to a solved model and a labelled report.">
+<meta property="og:title" content="Proksolab: simulation tools for RF engineers">
+<meta property="og:description" content="Turn gerbers into solved EM models and reports where every number says where it came from.">
 <meta property="og:url" content="https://www.proksolab.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f9e5b'/%3E%3Cpath d='M9 23C9 13 16 8 24 8c0 9-6 15-15 15z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,12 +52,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .cta.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
 .ticks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;padding:0;list-style:none;font:13px var(--mono);color:var(--dim)}
 .ticks li::before{content:"✓ ";color:var(--accent)}
-.room{width:100%;max-width:440px;justify-self:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
-.room text{font:10px var(--mono);fill:var(--dim)}
-@keyframes pulse{0%{r:6;opacity:.6}100%{r:46;opacity:0}}
-.wave{fill:none;stroke:var(--accent);stroke-width:1.5;animation:pulse 2.4s ease-out infinite}
-.wave.b{animation-delay:1.2s}
-@media(prefers-reduced-motion:reduce){.wave{animation:none;opacity:.3}}
 
 section{padding:72px 0;border-top:1px solid var(--line)}
 h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:12px}
@@ -82,18 +76,6 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:12px}
 .steps p{color:var(--dim);font-size:15px}
 
 
-.calc{display:grid;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
-@media(min-width:820px){.calc{grid-template-columns:1fr 1fr;gap:40px}}
-.calc label{display:block;font-size:14px;color:var(--dim);margin-bottom:14px}
-.calc input{display:block;width:100%;margin-top:6px;font:16px var(--mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.res{display:grid;gap:12px;align-content:start}
-.res div{background:var(--soft);border-radius:12px;padding:18px 20px}
-.res div:nth-child(2){background:var(--soft2)}
-.res b{display:block;font:800 clamp(26px,4vw,34px) var(--serif)}
-.res span{font-size:14px;color:var(--dim)}
-.note{font-size:13px;color:var(--dim);margin-top:4px}
-.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:var(--soft2);color:var(--accent2);vertical-align:middle}
-.chip.e{background:var(--line);color:var(--dim)}
 
 .labels{display:grid;gap:16px}
 @media(min-width:720px){.labels{grid-template-columns:repeat(3,1fr)}}
@@ -111,25 +93,6 @@ summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
 details[open] summary::after{content:"−"}
 details p{color:var(--dim);margin-top:10px;font-size:15px}
 
-.plans{display:grid;gap:16px}
-@media(min-width:820px){.plans{grid-template-columns:repeat(3,1fr)}}
-.plan{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
-.plan.hot{border:2px solid var(--accent);position:relative}
-.plan.hot::before{content:"MOST POPULAR";position:absolute;top:-11px;left:24px;font:11px var(--mono);letter-spacing:.08em;background:var(--accent);color:var(--btn-ink);padding:3px 8px;border-radius:4px}
-.plan h3{font-size:20px}
-.price{font:800 40px var(--serif);margin:10px 0 2px}
-.price small{font:14px var(--sans);color:var(--dim)}
-.plan ul{padding:0;list-style:none;margin:18px 0 24px;flex:1}
-.plan li{padding:7px 0 7px 24px;position:relative;color:var(--dim);font-size:15px;border-bottom:1px solid var(--line)}
-.plan li::before{content:"✓";position:absolute;left:0;color:var(--accent)}
-.plan .cta{text-align:center;font:600 16px var(--sans);cursor:pointer}
-.plan .cta:not(.ghost){border:0}
-
-.locked{position:relative;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
-.locked .blur{filter:blur(5px);user-select:none;margin-top:12px;font:13px/1.7 var(--mono);color:var(--dim)}
-.badge{display:inline-block;font:11px var(--mono);letter-spacing:.08em;background:var(--ink);color:var(--bg);padding:3px 8px;border-radius:4px}
-.locked:hover{border-color:var(--accent)}
-.locked .open{display:block;margin-top:14px;color:var(--accent);font-weight:600;font-size:15px}
 
 dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);padding:28px;width:min(440px,calc(100% - 32px))}
 dialog::backdrop{background:rgba(10,20,30,.45)}
@@ -140,6 +103,16 @@ dialog p{color:var(--dim);font-size:15px;margin-bottom:18px}
 .form .cta{border:0;cursor:pointer;font:600 16px var(--sans);width:100%}
 .x{float:right;background:none;border:0;font-size:22px;color:var(--dim);cursor:pointer;line-height:1}
 .signin{margin-left:20px;font:inherit;font-size:13px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+
+.term{width:100%;max-width:460px;justify-self:center;background:#0f1720;color:#cfe3f5;border-radius:16px;padding:20px 22px;font:13px/1.75 var(--mono);box-shadow:0 20px 50px rgba(15,23,32,.18);overflow-x:auto}
+.term .d{color:#6f8296}.term .k{color:#7fd3a0}.term .o{color:#ffb38a}.term .b{color:#8cc0ff}
+.term .bar{display:flex;gap:6px;margin-bottom:14px}.term .bar i{width:10px;height:10px;border-radius:50%;background:#2b3a4a}
+.plot{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+.plot text{font:10px var(--mono);fill:var(--dim)}
+.badge{display:inline-block;font:11px var(--mono);letter-spacing:.08em;background:var(--soft2);color:var(--accent2);padding:3px 8px;border-radius:4px}
+.split{display:grid;gap:32px;align-items:center}
+@media(min-width:860px){.split{grid-template-columns:1fr 1fr;gap:56px}}
+.note{font-size:13px;color:var(--dim);margin-top:4px}
 
 .contact{background:var(--soft)}
 .contact .two{display:grid;gap:32px}
@@ -163,199 +136,138 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
   <nav>
     <a class="logo" href="#">PROKSO<span>LAB</span></a>
     <div class="links">
-      <a href="#offer">Products</a><a href="#science">Science</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+      <a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#science">Method</a><a href="#contact">Contact</a>
       <button class="theme" id="theme" type="button" aria-label="Switch theme">🌿 Eco</button>
-      <button class="signin" type="button" data-gate="Customer portal">Sign in</button>
+      <button class="signin" type="button" data-gate="Early access">Get early access</button>
     </div>
   </nav>
 
   <header class="hero">
     <div>
-      <div class="tag">Proximity sensing · Low power · Measured</div>
-      <h1>Proximity sensing that <em>sips</em> power and proves its specs.</h1>
-      <p class="lede">Proksolab builds proximity sensing hardware for product makers. Our sensors tell your device when something is near, use as little energy as possible, and come with test data you can check for yourself.</p>
+      <div class="tag">Simulation tools · RF · Hardware</div>
+      <h1>From gerbers to a <em>solved</em> model in one run.</h1>
+      <p class="lede">Proksolab builds AI-assisted simulation tools for RF and hardware engineers. Point them at your board files and they build the model, run the field solver, check the layout and write a report where every number says where it came from.</p>
       <div class="ctas">
-        <a class="cta" href="#contact">Request an evaluation kit →</a>
-        <a class="cta ghost" href="#battery">Estimate battery life</a>
+        <a class="cta" href="#contact">Join early access →</a>
+        <a class="cta ghost" href="#workflow">See the workflow</a>
       </div>
-      <ul class="ticks"><li>Built for battery devices</li><li>Measured, not marketed</li><li>Integration support</li><li>Small-batch to production</li></ul>
+      <ul class="ticks"><li>Works with KiCad</li><li>Drives HFSS &amp; openEMS</li><li>Labelled results</li><li>Models you keep</li></ul>
     </div>
-    <!-- sensor module detecting an approaching object -->
-    <svg class="room" viewBox="0 0 260 200" role="img" aria-label="A sensor module detecting an object approaching it">
-      <g stroke="var(--line)" stroke-dasharray="2 4"><path d="M60 20V180M110 20V180M160 20V180M210 20V180"/></g>
-      <rect x="14" y="80" width="30" height="40" rx="5" fill="var(--ink)"/>
-      <rect x="38" y="94" width="6" height="12" rx="2" fill="var(--accent)"/>
-      <circle class="wave" cx="44" cy="100" r="6"/><circle class="wave b" cx="44" cy="100" r="6"/>
-      <path d="M44 100 C90 70,130 70,176 88" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
-      <circle cx="186" cy="100" r="16" fill="var(--soft2)" stroke="var(--accent2)" stroke-width="2"/>
-      <path d="M44 150H186" stroke="var(--accent2)" stroke-width="1.5"/><path d="M44 145V155M186 145V155" stroke="var(--accent2)" stroke-width="1.5"/>
-      <text x="96" y="166">distance</text>
-      <text x="60" y="16">near</text><text x="200" y="16">far</text>
-      <text x="14" y="194">output: OBJECT NEAR · wake device</text>
-    </svg>
+    <!-- illustrative run log, not real output -->
+    <div class="term" aria-label="Example of a simulation run">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div><span class="d">$</span> prokso run <span class="b">board.kicad_pcb</span> --band 57-64GHz</div>
+      <div><span class="k">✓</span> stackup rebuilt from gerbers <span class="o">MEASURED</span></div>
+      <div><span class="k">✓</span> 4 antenna ports found</div>
+      <div><span class="k">✓</span> model meshed, solver queued</div>
+      <div><span class="k">✓</span> S-parameters &amp; 3D patterns <span class="o">SOLVED</span></div>
+      <div><span class="k">✓</span> DFM: 2 warnings, 0 errors</div>
+      <div><span class="k">✓</span> report.pdf written</div>
+    </div>
   </header>
 </div>
 
 <section class="alt">
   <div class="wrap">
-    <h2>Why proximity sensing is harder than it looks</h2>
-    <p class="sub">Adding "knows when something is near" to a product sounds simple. Then the real problems show up.</p>
+    <h2>Simulation should not take a week to set up</h2>
+    <p class="sub">Full-wave solvers are powerful. Getting a board into one is where the time goes.</p>
     <div class="grid three">
-      <div class="card"><div class="ico">🔋</div><h3>It drains the battery</h3><p>A sensor that is always listening can cost more energy than the rest of the product. Battery life becomes the first complaint in reviews.</p></div>
-      <div class="card"><div class="ico">📄</div><h3>Datasheets oversell</h3><p>Best-case numbers measured in perfect conditions rarely survive a real enclosure, real materials and real users.</p></div>
-      <div class="card"><div class="ico">🧩</div><h3>Integration takes months</h3><p>Tuning, enclosure effects and false triggers eat engineering time that should go into your actual product.</p></div>
+      <div class="card"><div class="ico">⏳</div><h3>Setup eats the schedule</h3><p>Rebuilding stackups, drawing ports and fixing meshes by hand can take longer than the solve itself.</p></div>
+      <div class="card"><div class="ico">🔁</div><h3>Every change starts over</h3><p>Move a via or change a material and the whole model has to be rebuilt and checked again.</p></div>
+      <div class="card"><div class="ico">❓</div><h3>Reports blur the sources</h3><p>Measured values, solver output and guesses end up in the same table, and nobody can tell them apart.</p></div>
     </div>
   </div>
 </section>
 
-<section id="offer">
+<section id="features">
   <div class="wrap">
-    <h2>What we offer</h2>
-    <p class="sub">From a module you can try this week to a sensor designed around your product.</p>
+    <h2>What the tools do</h2>
+    <p class="sub">An assistant that handles the tedious parts of RF simulation, so engineers spend their time on decisions.</p>
     <div class="grid">
-      <div class="card"><div class="ico">📦</div><h3>Sensor modules</h3><p>Ready-made proximity modules you can drop onto your board and talk to from your microcontroller.</p></div>
-      <div class="card"><div class="ico">🧪</div><h3>Evaluation kits</h3><p>A module, a test board and our measurement data, so your team can check performance before committing.</p></div>
-      <div class="card"><div class="ico">🛠️</div><h3>Integration support</h3><p>We help tune detection inside your enclosure and cut false triggers, with measurements at every step.</p></div>
-      <div class="card"><div class="ico">📐</div><h3>Custom designs</h3><p>Need a different range, size or power budget? We design the sensing hardware around your product.</p></div>
+      <div class="card"><div class="ico">📐</div><h3>Model from your files</h3><p>Reads KiCad projects and gerbers, rebuilds the stackup and geometry, and flags every value it had to assume.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>Drive the solver</h3><p>Sets up ports, boundaries and sweeps in HFSS or openEMS, runs them, and pulls back S-parameters and 3D patterns.</p></div>
+      <div class="card"><div class="ico">🔍</div><h3>Check the layout</h3><p>Design-rule and manufacturability checks on RF boards, including BGA fan-out and controlled-impedance feeds.</p></div>
+      <div class="card"><div class="ico">📊</div><h3>Write the report</h3><p>Plots, tables and a written summary, with every number labelled as measured, solved or estimated.</p></div>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section id="workflow" class="alt">
+  <div class="wrap split">
+    <div>
+      <h2>One workflow, start to finish</h2>
+      <p class="sub">Each step leaves files your team can open, check and rerun without us.</p>
+      <ol class="steps" style="grid-template-columns:1fr">
+        <li><h3>Import</h3><p>Board files, stackup and the band you care about.</p></li>
+        <li><h3>Solve</h3><p>Model built, meshed and run, with sensitivity sweeps if you ask.</p></li>
+        <li><h3>Review</h3><p>A labelled report plus the solver project, Touchstone files and patterns.</p></li>
+      </ol>
+    </div>
+    <!-- illustrative S11 curve, not real data -->
+    <svg class="plot" viewBox="0 0 300 200" role="img" aria-label="Example return loss plot with a resonance near 60 GHz">
+      <g stroke="var(--line)"><path d="M40 15V170H290"/><path d="M40 60H290M40 110H290" stroke-dasharray="2 4"/></g>
+      <path d="M40 30 C90 32,120 40,150 90 S165 160,175 150 S200 60,240 40 S280 32,290 31" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+      <path d="M40 110H290" stroke="var(--accent2)" stroke-dasharray="5 4"/>
+      <text x="6" y="34">0 dB</text><text x="2" y="114">−10 dB</text>
+      <text x="40" y="186">57 GHz</text><text x="150" y="186">60.5</text><text x="250" y="186">64 GHz</text>
+      <text x="182" y="146">|S11|</text>
+    </svg>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
-    <h2>Where it fits</h2>
-    <p class="sub">Anywhere a device should react when something comes close, and sleep the rest of the time.</p>
+    <h2>Built for RF and hardware teams</h2>
+    <p class="sub">Started on our own work: 60 GHz radar antennas and the boards they sit on.</p>
     <div class="grid three">
-      <div class="card"><div class="ico">💡</div><h3>Smart lighting</h3><p>Lights that wake as someone approaches and stay off otherwise.</p></div>
-      <div class="card"><div class="ico">🚰</div><h3>Touch-free fixtures</h3><p>Taps, dispensers and hand dryers that use water and power only when a hand is there.</p></div>
-      <div class="card"><div class="ico">🖥️</div><h3>Displays &amp; kiosks</h3><p>Screens that wake for a user and sleep when nobody is looking.</p></div>
-      <div class="card"><div class="ico">🤖</div><h3>Robots &amp; machines</h3><p>Knowing when a person or obstacle is close, to slow down or stop.</p></div>
-      <div class="card"><div class="ico">⌚</div><h3>Wearables</h3><p>Detecting when a device is worn or picked up, on a tiny battery.</p></div>
-      <div class="card"><div class="ico">🏠</div><h3>Home appliances</h3><p>Panels and controls that light up as you reach for them.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="battery">
-  <div class="wrap">
-    <h2>Estimate battery life</h2>
-    <p class="sub">Power is where proximity sensing lives or dies. Plug in your numbers and see what the sensor costs your battery. The maths is shown.</p>
-    <div class="calc">
-      <form id="calc" oninput="calcRun()">
-        <label>Battery capacity (mAh)<input type="number" id="cap" min="1" value="225"></label>
-        <label>Current while measuring (mA)<input type="number" id="act" min="0" step="0.1" value="5"></label>
-        <label>Time per measurement (ms)<input type="number" id="ms" min="0" step="0.1" value="1"></label>
-        <label>Measurements per second<input type="number" id="rate" min="0" step="0.1" value="2"></label>
-        <label>Sleep current (µA)<input type="number" id="sleep" min="0" step="0.1" value="2"></label>
-        <label>Usable share of battery (%) <span class="chip e">ESTIMATED</span><input type="number" id="use" min="1" max="100" value="80"></label>
-      </form>
-      <div class="res">
-        <div><b id="avg">–</b><span>average current <span class="chip">CALCULATED</span></span></div>
-        <div><b id="life">–</b><span>battery life from sensing alone</span></div>
-        <div><b id="days">–</b><span>in days</span></div>
-        <p class="note">Average = active mA × (ms × rate ÷ 1000) + sleep µA ÷ 1000. Life = capacity × usable share ÷ average. Ignores self-discharge, temperature and the rest of your circuit. Defaults are a coin cell and example values, not our specs.</p>
-      </div>
+      <div class="card"><div class="ico">📡</div><h3>Antenna designers</h3><p>Patch arrays, MIMO layouts and radome effects, solved without days of setup.</p></div>
+      <div class="card"><div class="ico">🧩</div><h3>PCB engineers</h3><p>RF layout checks before fab, so the first board is not the experiment.</p></div>
+      <div class="card"><div class="ico">🧪</div><h3>Small hardware teams</h3><p>Simulation results usually reserved for teams with a dedicated EM specialist.</p></div>
     </div>
   </div>
 </section>
 
 <section id="science" class="alt">
   <div class="wrap">
-    <h2>Science first: every number has a label</h2>
-    <p class="sub">Sensor specs are easy to inflate. Every figure we give you says where it came from, so you know which ones you can design around.</p>
+    <h2>Every number has a label</h2>
+    <p class="sub">An AI tool that blurs facts and guesses is worse than no tool. Every figure we produce says where it came from.</p>
     <div class="labels">
-      <div class="label m"><b>MEASURED</b><p>Taken on the bench or in your enclosure, with the raw data and test setup handed to you.</p></div>
-      <div class="label s"><b>CALCULATED</b><p>Worked out from measured values, with the formula written next to it.</p></div>
-      <div class="label e"><b>ESTIMATED</b><p>Engineering judgement, flagged clearly. We never quote one as a spec.</p></div>
+      <div class="label m"><b>MEASURED</b><p>Read directly from your files or your bench data.</p></div>
+      <div class="label s"><b>SOLVED</b><p>Computed by a full-wave field solver on a model you can open yourself.</p></div>
+      <div class="label e"><b>ESTIMATED</b><p>Engineering judgement, flagged clearly and never quoted as a result.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Eco by design</h2>
-    <p class="sub">A sensor's job is often to save energy. It should not waste any of its own.</p>
+    <h2>Efficient by design</h2>
+    <p class="sub">Simulating before you build means fewer boards made, tested and thrown away.</p>
     <div class="grid three">
-      <div class="card"><div class="ico">🌱</div><h3>Sleep by default</h3><p>The sensor spends as much time as possible asleep, and wakes your device only when something is near.</p></div>
-      <div class="card"><div class="ico">🔋</div><h3>Fewer batteries</h3><p>Longer battery life means fewer replacements, less waste and fewer service visits.</p></div>
-      <div class="card"><div class="ico">💧</div><h3>Less waste downstream</h3><p>Fixtures, lights and screens that switch on only when needed save water and power for years.</p></div>
+      <div class="card"><div class="ico">🌱</div><h3>Fewer prototype spins</h3><p>Catch the problem in a model, not in a batch of boards headed for the bin.</p></div>
+      <div class="card"><div class="ico">🎯</div><h3>Only the runs you need</h3><p>Sweeps are scoped to the question, so compute is not wasted on runs nobody reads.</p></div>
+      <div class="card"><div class="ico">📂</div><h3>Nothing locked in</h3><p>You keep standard files: solver projects, Touchstone data and KiCad boards.</p></div>
     </div>
   </div>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <h2>From first sample to production</h2>
-    <p class="sub">A clear path, with measured results at every step.</p>
-    <ol class="steps four">
-      <li><h3>Evaluate</h3><p>Get a kit and our test data, and try it on your own bench.</p></li>
-      <li><h3>Integrate</h3><p>We help fit the sensor into your enclosure and tune it.</p></li>
-      <li><h3>Validate</h3><p>We measure range, false triggers and power in your real product.</p></li>
-      <li><h3>Produce</h3><p>Modules supplied for your build, with the same test data each batch.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section id="pricing" class="alt">
-  <div class="wrap">
-    <h2>Pricing</h2>
-    <p class="sub">Start small, pay for what you use, and move to volume pricing when you are ready. Prices exclude VAT and shipping.</p>
-    <div class="plans">
-      <div class="plan">
-        <h3>Evaluation kit</h3>
-        <div class="price">€149 <small>one-off</small></div>
-        <p class="note">For testing on your own bench.</p>
-        <ul><li>2 sensor modules</li><li>Test board with USB</li><li>Bench test report</li><li>Email support for 30 days</li></ul>
-        <button class="cta ghost" type="button" data-gate="Evaluation kit order">Order a kit</button>
-      </div>
-      <div class="plan hot">
-        <h3>Integration</h3>
-        <div class="price">€4,900 <small>per project</small></div>
-        <p class="note">For getting it right inside your product.</p>
-        <ul><li>Everything in the kit</li><li>Tuning in your enclosure</li><li>Range, false-trigger and power report</li><li>Two review calls with our engineers</li><li>Full resource library access</li></ul>
-        <button class="cta" type="button" data-gate="Integration project">Start a project</button>
-      </div>
-      <div class="plan">
-        <h3>Production</h3>
-        <div class="price">Custom <small>volume pricing</small></div>
-        <p class="note">For builds of 1,000 units and up.</p>
-        <ul><li>Volume module pricing</li><li>Per-batch test data</li><li>Custom range or form factor</li><li>Priority engineering support</li></ul>
-        <button class="cta ghost" type="button" data-gate="Production quote">Get a quote</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="resources">
-  <div class="wrap">
-    <h2>Resource library</h2>
-    <p class="sub">Datasheets, full test reports and reference designs are available to customers and approved evaluators.</p>
-    <div class="grid">
-      <button class="card locked" type="button" data-gate="Datasheet"><span class="badge">🔒 CUSTOMERS</span><h3>Datasheet</h3><div class="blur" aria-hidden="true">Supply 1.8–3.3 V · Sleep current ██ µA · Range ██–███ mm · Interface ███ · Package ██ × ██ mm</div><span class="open">Request access →</span></button>
-      <button class="card locked" type="button" data-gate="Bench test report"><span class="badge">🔒 CUSTOMERS</span><h3>Bench test report</h3><div class="blur" aria-hidden="true">Detection rate ██.█ % at ███ mm · False triggers ██ per hour · Temp −██ to ██ °C · n = ███</div><span class="open">Request access →</span></button>
-      <button class="card locked" type="button" data-gate="Enclosure tuning guide"><span class="badge">🔒 CUSTOMERS</span><h3>Enclosure tuning guide</h3><div class="blur" aria-hidden="true">ABS ██ mm: −█ % range · Glass ██ mm: −██ % · Keep-out ██ mm around the window</div><span class="open">Request access →</span></button>
-      <button class="card locked" type="button" data-gate="Reference design files"><span class="badge">🔒 CUSTOMERS</span><h3>Reference design files</h3><div class="blur" aria-hidden="true">Schematic · PCB layout · BOM · Example firmware for ███ and ███</div><span class="open">Request access →</span></button>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
+<section id="faq" class="alt">
   <div class="wrap">
     <h2>Questions</h2>
-    <details><summary>Can we test before buying in volume?</summary><p>Yes. Start with an evaluation kit and our measurement data, and check the results on your own bench.</p></details>
-    <details><summary>Will our enclosure change the performance?</summary><p>Usually, yes. Plastics, glass and metal near the sensor all matter. That is why we measure inside your real enclosure, not just on an open bench.</p></details>
-    <details><summary>Can you design a custom sensor?</summary><p>Yes. Tell us your range, size, power budget and environment, and we will tell you what is realistic.</p></details>
-    <details><summary>How do we connect it to our product?</summary><p>Tell us which microcontroller and interface you use and we will confirm how the sensor connects.</p></details>
+    <details><summary>Is it available now?</summary><p>We are opening early access to a small number of teams. Join the list and we will be in touch.</p></details>
+    <details><summary>Which tools does it work with?</summary><p>KiCad for layout, and HFSS or openEMS for full-wave simulation. Tell us what you use and we will tell you where we stand.</p></details>
+    <details><summary>Do we need our own solver licence?</summary><p>For HFSS, yes. openEMS is open source and needs no licence.</p></details>
+    <details><summary>Do we keep the models?</summary><p>Yes. Every run leaves standard files your team can open and rerun without us.</p></details>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap two">
     <div>
-      <h2>Make your product aware, not power hungry.</h2>
-      <p class="sub">Tell us what you are building and we will suggest a sensor, a kit or a project. We reply within one working day.</p>
+      <h2>Spend your time on the design, not the setup.</h2>
+      <p class="sub">Tell us about your boards and tools and we will get back to you about early access. We reply within one working day.</p>
       <ul class="reach">
-        <li><b>Sales &amp; general</b>hello@proksolab.com</li>
+        <li><b>Early access &amp; general</b>hello@proksolab.com</li>
         <li><b>Response time</b>Within one working day</li>
       </ul>
     </div>
@@ -364,9 +276,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
       <label>Name<input name="name" required autocomplete="name"></label>
       <label>Work email<input name="email" type="email" required autocomplete="email"></label>
       <label>Company<input name="company" autocomplete="organization"></label>
-      <label>I'm interested in<select name="topic"><option>Evaluation kit</option><option>Integration project</option><option>Production quote</option><option>Custom design</option><option>Something else</option></select></label>
-      <label>What are you building?<textarea name="msg" rows="4"></textarea></label>
-      <button class="cta" type="submit">Send message →</button>
+      <label>Main tools<select name="topic"><option>KiCad + HFSS</option><option>KiCad + openEMS</option><option>Other EDA / solver</option><option>Not sure yet</option></select></label>
+      <label>What are you designing?<textarea name="msg" rows="4"></textarea></label>
+      <button class="cta" type="submit">Join early access →</button>
     </form>
   </div>
 </section>
@@ -374,8 +286,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 <dialog id="gate">
   <form class="form" id="gateForm">
     <button class="x" type="button" aria-label="Close" onclick="gate.close()">×</button>
-    <h3 id="gateTitle">Request access</h3>
-    <p>Leave your details and our team will get you set up, usually within one working day.</p>
+    <h3 id="gateTitle">Early access</h3>
+    <p>Leave your details and we will be in touch, usually within one working day.</p>
     <label>Work email<input name="email" type="email" required autocomplete="email"></label>
     <label>Company<input name="company" required autocomplete="organization"></label>
     <button class="cta" type="submit">Request access →</button>
@@ -384,9 +296,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font:13p
 
 <div class="wrap">
   <div class="foot">
-    <div><a class="logo" href="#">PROKSO<span>LAB</span></a><p>Low-power proximity sensing hardware, with every number measured.</p></div>
-    <div><h4>Product</h4><a href="#offer">Modules &amp; kits</a><a href="#pricing">Pricing</a><a href="#battery">Battery calculator</a></div>
-    <div><h4>Resources</h4><a href="#resources">Library</a><a href="#science">Our method</a><a href="#faq">FAQ</a></div>
+    <div><a class="logo" href="#">PROKSO<span>LAB</span></a><p>AI-assisted simulation tools for RF and hardware engineers.</p></div>
+    <div><h4>Product</h4><a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#faq">FAQ</a></div>
+    <div><h4>Method</h4><a href="#science">Labelled results</a></div>
     <div><h4>Company</h4><a href="#contact">Contact</a><a href="mailto:hello@proksolab.com">hello@proksolab.com</a></div>
   </div>
   <footer><span>© 2026 Proksolab. All rights reserved.</span><span>proksolab.com</span></footer>
@@ -401,17 +313,6 @@ btn.onclick = () => {
   try { localStorage.setItem('theme', t); } catch (e) {}
 };
 
-const v = id => Math.max(0, +document.getElementById(id).value || 0);
-function calcRun() {
-  const duty = Math.min(v('ms') * v('rate') / 1000, 1);
-  const avg = v('act') * duty + v('sleep') / 1000; // mA
-  const hours = avg ? v('cap') * Math.min(v('use'), 100) / 100 / avg : Infinity;
-  document.getElementById('avg').textContent = avg < 1 ? (avg * 1000).toFixed(1) + ' µA' : avg.toFixed(2) + ' mA';
-  document.getElementById('life').textContent = isFinite(hours) ? (hours / 8760).toFixed(1) + ' years' : '∞';
-  document.getElementById('days').textContent = isFinite(hours) ? Math.round(hours / 24).toLocaleString() : '∞';
-}
-calcRun();
-
 // ponytail: static site, so forms hand off to the visitor's mail app; swap in a form service if leads get lost
 const mail = (subject, f) => {
   const body = [...new FormData(f)].map(([k, x]) => `${k}: ${x}`).join('\n');
@@ -422,9 +323,9 @@ document.querySelectorAll('[data-gate]').forEach(b => b.onclick = () => {
   gateTitle.textContent = b.dataset.gate;
   gate.showModal();
 });
-gateForm.onsubmit = e => { e.preventDefault(); mail('Access request: ' + gateTitle.textContent, gateForm); gate.close(); };
+gateForm.onsubmit = e => { e.preventDefault(); mail('Early access request', gateForm); gate.close(); };
 const contactForm = document.getElementById('contactForm');
-contactForm.onsubmit = e => { e.preventDefault(); mail('Enquiry: ' + contactForm.topic.value, contactForm); };
+contactForm.onsubmit = e => { e.preventDefault(); mail('Early access: ' + contactForm.topic.value, contactForm); };
 </script>
 </body>
 </html>
